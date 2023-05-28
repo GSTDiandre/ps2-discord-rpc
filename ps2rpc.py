@@ -4,7 +4,7 @@ import subprocess
 import logging
 from pypresence import Presence
 
-client_id = "1112034192960798840"  # Fake ID, put your real one here
+client_id = "0000000000000000000"  # Fake ID, put your real one here
 
 # the public network interface
 HOST = "192.168.1.110"
