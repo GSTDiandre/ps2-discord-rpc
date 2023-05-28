@@ -4,11 +4,11 @@ import subprocess
 import logging
 from pypresence import Presence
 
-client_id = "0000000000000000000"  # Fake ID, put your real one here
+client_id = "1112034192960798840"  # Fake ID, put your real one here
 
 # the public network interface
 HOST = "192.168.1.110"
-PS2_IP = "192.168.1.100"
+PS2_IP = "192.168.1.114"
 DVD_FILTER = bytes([0x5C, 0x00, 0x44, 0x00, 0x56, 0x00, 0x44, 0x00, 0x5C])
 GAMES_BIN_FILTER = bytes(
     [
@@ -41,9 +41,17 @@ GAMES_BIN_FILTER = bytes(
         0x6E,
     ]
 )
-IMAGE_MAP = {
+
+LARGE_IMAGE_MAP = {
     "SLUS_210.05" : "https://i.imgur.com/GXSok6D.jpg",
+    "SLES_535.40" : "https://i.imgur.com/jjRCj7e.jpg",
 }
+
+SMALL_IMAGE_MAP = {
+    "SLUS_210.05" : "https://i.imgur.com/9eC9WOP.png",
+    "SLES_535.40" : "https://i.imgur.com/z4iSnFj.png",
+}
+
 
 
 # poor man's python
@@ -67,7 +75,7 @@ def ping_ps2(ip=PS2_IP):
             logging.info("PS2 is alive")
             return True
         else:
-            logging.warning("RIP PS2 xc")
+            logging.warning("PS2 has gone offline")
             return False
     except subprocess.TimeoutExpired:
         return False
@@ -92,9 +100,13 @@ def main():
         ip, port = address
         if ip == PS2_IP:
             if not PS2Online:
-                RPC.update(state="on PS2", details="test", start=time.time())
-                logger.info("PS2 up and running")
-                print(message, len(message))
+                RPC.update(state="Idle",
+                details="running OPL", 
+                large_image="https://i.imgur.com/MXzehWn.png", 
+                large_text="Open PS2 Loader", 
+                start=time.time())
+                logger.info("PS2 has come online")
+                #print(message, len(message))
                 PS2Online = True
             # drop last byte
             slice = message[128:-1]
@@ -106,22 +118,24 @@ def main():
                     ".", 2
                 )
                 RPC.update(
-                    state=gamecode,
-                    details=gamename,
-                    large_image=IMAGE_MAP.get(gamecode, "https://i.imgur.com/jjRCj7e.jpg"),
-                    large_text=gamename,
-                    small_image="https://i.imgur.com/JKZh6NK.png",
-                    start=time.time(),
+                    state=gamecode,#middle text
+                    details=gamename,#top text
+                    large_image=LARGE_IMAGE_MAP.get(gamecode, "https://i.imgur.com/HjuVXhR.png"),
+                    large_text=gamename,#hover text
+                    small_image=SMALL_IMAGE_MAP.get(gamecode,"https://i.imgur.com/91Nj3w0.png"),
+                    small_text="PlayStation 2",#hover text
+                    start=time.time(),#timer
                 )
-                logger.info("RPC started " + gamecode + " and " + gamename)
+                logger.info("RPC started:" + gamecode + " - " + gamename)
+                time.sleep(10)#necessary wait to avoit dropped pings on game startup
                 while True:
                     if ping_ps2(PS2_IP):
-                	    #wait before pinging
+                	    #wait before pinging again
                         time.sleep(5)
                     else:
                         PS2Online = False
                         RPC.clear()
-                        logging.info("RPC done")
+                        logging.info("RPC terminated")
                         #we don't talk about bruno
                         s.recvfrom(65565)
                         s.recvfrom(65565)
