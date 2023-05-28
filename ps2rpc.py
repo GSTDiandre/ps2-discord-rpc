@@ -4,6 +4,11 @@ import subprocess
 import logging
 from pypresence import Presence
 
+#TODO Imgur uploads
+#TODO Dynamic dictionary
+#TODO Kill RPC after disconnect in OPL
+#TODO Extend ping TTL for fewer pings until timeout
+
 client_id = "1112034192960798840"  # Fake ID, put your real one here
 
 # the public network interface
@@ -41,6 +46,7 @@ GAMES_BIN_FILTER = bytes(
         0x6E,
     ]
 )
+PING_GRACE = 3
 
 LARGE_IMAGE_MAP = {
     "SLUS_210.05" : "https://i.imgur.com/GXSok6D.jpg",
@@ -52,19 +58,16 @@ SMALL_IMAGE_MAP = {
     "SLES_535.40" : "https://i.imgur.com/z4iSnFj.png",
 }
 
-
-
 # poor man's python
 def remove_prefix(text, prefix):
     if text.startswith(prefix):
         return text[len(prefix) :]
     return text  # or whatever
 
-
 def ping_ps2(ip=PS2_IP):
     # Define the ping command based on the operating system
     # ping_cmd = ["ping", "-c", "1", ip]  # For Linux/macOS
-    ping_cmd = ["ping", "-n", "1", ip]  # For Windows
+    ping_cmd = ["ping", "-n", "1", ip, "-w", "5000"]  # For Windows
     try:
         # Execute the ping command and capture the output
         result = subprocess.run(ping_cmd, capture_output=True, text=True, timeout=5)
@@ -72,10 +75,9 @@ def ping_ps2(ip=PS2_IP):
 
         # Check the output for successful ping
         if "de" in output and "temps=" in output:
-            logging.info("PS2 is alive")
+            logging.debug("PS2 is alive")
             return True
         else:
-            logging.warning("PS2 has gone offline")
             return False
     except subprocess.TimeoutExpired:
         return False
@@ -126,25 +128,32 @@ def main():
                     small_text="PlayStation 2",#hover text
                     start=time.time(),#timer
                 )
-                logger.info("RPC started:" + gamecode + " - " + gamename)
+                logger.info("RPC started: " + gamecode + " - " + gamename)
                 time.sleep(10)#necessary wait to avoit dropped pings on game startup
-                while True:
+                ping_count=1
+                ping_lost=False
+                while ping_count<=PING_GRACE:
                     if ping_ps2(PS2_IP):
+                        ping_count=1
+                        if ping_lost:
+                            logging.info("PS2 has resumed pings")
+                            ping_lost=False
                 	    #wait before pinging again
-                        time.sleep(5)
+                        time.sleep(3)
                     else:
-                        PS2Online = False
-                        RPC.clear()
-                        logging.info("RPC terminated")
-                        #we don't talk about bruno
-                        s.recvfrom(65565)
-                        s.recvfrom(65565)
-                        s.recvfrom(65565)
-                        s.recvfrom(65565)
-                        s.recvfrom(65565)
-                        break
+                        logging.warning("No response from PS2, retrying.. ({}/{})".format(ping_count,PING_GRACE))
+                        ping_lost=True
+                        ping_count+=1
+                PS2Online = False
+                RPC.clear()
+                logging.info("PS2 has gone offline, RPC terminated")
+                #we don't talk about bruno
+                s.recvfrom(65565)
+                s.recvfrom(65565)
+                s.recvfrom(65565)
+                s.recvfrom(65565)
+                s.recvfrom(65565)
                 time.sleep(3)
-
     # receive a packet
     # disabled promiscuous mode
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
