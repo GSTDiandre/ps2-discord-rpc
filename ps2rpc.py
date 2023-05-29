@@ -141,7 +141,8 @@ def main():
                     #large_image=LARGE_IMAGE_MAP.get(gamecode, "https://i.imgur.com/HjuVXhR.png"), #default PS2 Logo
                     large_image=f"https://raw.githubusercontent.com/xlenore/ps2-covers/main/covers/{fixed_gamecode}.jpg",
                     large_text=fixed_gamename,#large image hover text
-                    small_image=SMALL_IMAGE_MAP.get(gamecode,"https://i.imgur.com/91Nj3w0.png"),
+                    #small_image=SMALL_IMAGE_MAP.get(gamecode,"https://i.imgur.com/91Nj3w0.png"),
+                    small_image="https://i.imgur.com/91Nj3w0.png",
                     small_text="PlayStation 2",#small image hover text
                     start=time.time(),#timer
                 )
