@@ -8,7 +8,7 @@ import sys
 from pypresence import Presence
 
 #TODO Kill RPC after disconnect in OPL
-#TODO log to file, signal new sessions
+#TODO log to .log file, signal new sessions
 #TODO read IDs and IPs from config file
 
 CLIENT_ID = "1112585966562070639"  # Fake ID, put your real one here
@@ -136,7 +136,7 @@ def main():
                 fixed_gamecode = gamecode.replace('_','-').replace('.','')
                 fixed_gamename = get_fixed_gamename(GAMEDB_PATH, fixed_gamecode)
                 RPC.update(
-                    state=gamecode,#middle text
+                    state=fixed_gamecode,#middle text
                     details=fixed_gamename,#top text
                     #large_image=LARGE_IMAGE_MAP.get(gamecode, "https://i.imgur.com/HjuVXhR.png"), #default PS2 Logo
                     large_image=f"https://raw.githubusercontent.com/xlenore/ps2-covers/main/covers/{fixed_gamecode}.jpg",
