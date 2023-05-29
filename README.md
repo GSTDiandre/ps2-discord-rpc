@@ -6,3 +6,5 @@ A PS2 rich presence client for Discord, for use with OPL over SMB.
 Detects game at launch, maintains rich presence until the console is turned off. Has to run before OPL.
 
 Replace CLIENT_ID with a valid Client ID, and specify the PS2's IP as PS2_IP/the host machine's IP as HOST_IP.
+
+Requires Python 3.8+. Tested on OPL 1.1.0.
