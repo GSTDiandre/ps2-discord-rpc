@@ -5,7 +5,9 @@ A PS2 rich presence client for Discord, for use with Open PS2 Loader (OPL) over 
 
 Detects game at launch, maintains rich presence until the console is turned off. Has to run before any game is launched on OPL.
 
-Requires Python 3.8+. Tested on OPL 1.1.0.
+Game covers pulled from [Xlenore's PS2 Covers](https://github.com/xlenore/ps2-covers).
+
+Requires Python 3.8+. Tested with OPL 1.1.0.
 
 Usage: 
 
