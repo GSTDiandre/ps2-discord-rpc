@@ -2,18 +2,19 @@ import socket
 import time
 import subprocess
 import logging
+import datetime
+import os
+import sys
 from pypresence import Presence
 
-#TODO Imgur uploads
-#TODO Dynamic dictionary
 #TODO Kill RPC after disconnect in OPL
-#TODO Extend ping TTL for fewer pings until timeout
+#TODO log to file, signal new sessions
+#TODO read IDs and IPs from config file
 
-client_id = "1112034192960798840"  # Fake ID, put your real one here
-
-# the public network interface
-HOST = "192.168.1.110"
+CLIENT_ID = "1112585966562070639"  # Fake ID, put your real one here
+HOST_IP = "192.168.1.110"
 PS2_IP = "192.168.1.114"
+PATH = os.path.dirname(os.path.abspath(sys.argv[0]))
 DVD_FILTER = bytes([0x5C, 0x00, 0x44, 0x00, 0x56, 0x00, 0x44, 0x00, 0x5C])
 GAMES_BIN_FILTER = bytes(
     [
@@ -46,14 +47,16 @@ GAMES_BIN_FILTER = bytes(
         0x6E,
     ]
 )
+GAMEDB_PATH = PATH + '\\GameDB.txt'
+CONFIG_PATH = PATH + '\\config.ini'
 PING_GRACE = 3
 
-LARGE_IMAGE_MAP = {
+LARGE_IMAGE_MAP = {#unused maps
     "SLUS_210.05" : "https://i.imgur.com/GXSok6D.jpg",
     "SLES_535.40" : "https://i.imgur.com/jjRCj7e.jpg",
 }
 
-SMALL_IMAGE_MAP = {
+SMALL_IMAGE_MAP = {#unused maps
     "SLUS_210.05" : "https://i.imgur.com/9eC9WOP.png",
     "SLES_535.40" : "https://i.imgur.com/z4iSnFj.png",
 }
@@ -64,6 +67,17 @@ def remove_prefix(text, prefix):
         return text[len(prefix) :]
     return text  # or whatever
 
+def get_fixed_gamename(filename, search_string):
+    found_line = "Unknown game"
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+        for index, line in enumerate(lines):
+            if line.startswith(search_string):
+                if index + 1 < len(lines):
+                    found_line = lines[index + 1].strip()[1:-1]
+                break
+    return found_line
+
 def ping_ps2(ip=PS2_IP):
     # Define the ping command based on the operating system
     # ping_cmd = ["ping", "-c", "1", ip]  # For Linux/macOS
@@ -72,9 +86,8 @@ def ping_ps2(ip=PS2_IP):
         # Execute the ping command and capture the output
         result = subprocess.run(ping_cmd, capture_output=True, text=True, timeout=5)
         output = result.stdout.lower()
-
         # Check the output for successful ping
-        if "de" in output and "temps=" in output:
+        if "ttl=" in output:
             logging.debug("PS2 is alive")
             return True
         else:
@@ -87,11 +100,13 @@ def ping_ps2(ip=PS2_IP):
 
 
 def main():
-    RPC = Presence(client_id)  # Initialize the client class
+    logger.info(f"PS2 IP is set as {PS2_IP}")
+    logger.info(f"PS2 IP is set as {HOST_IP}")
+    RPC = Presence(CLIENT_ID)  # Initialize the client class
     RPC.connect()  # Start the handshake loop
     # create a raw socket and bind it to the public interface
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
-    s.bind((HOST, 0))
+    s.bind((HOST_IP, 0))
     # Include IP headers
     s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
     # receive all packets
@@ -108,7 +123,6 @@ def main():
                 large_text="Open PS2 Loader", 
                 start=time.time())
                 logger.info("PS2 has come online")
-                #print(message, len(message))
                 PS2Online = True
             # drop last byte
             slice = message[128:-1]
@@ -119,17 +133,20 @@ def main():
                 gamecode, gamename, _ = remove_prefix(gamepath, "\\DVD\\").rsplit(
                     ".", 2
                 )
+                fixed_gamecode = gamecode.replace('_','-').replace('.','')
+                fixed_gamename = get_fixed_gamename(GAMEDB_PATH, fixed_gamecode)
                 RPC.update(
                     state=gamecode,#middle text
-                    details=gamename,#top text
-                    large_image=LARGE_IMAGE_MAP.get(gamecode, "https://i.imgur.com/HjuVXhR.png"),
-                    large_text=gamename,#hover text
+                    details=fixed_gamename,#top text
+                    #large_image=LARGE_IMAGE_MAP.get(gamecode, "https://i.imgur.com/HjuVXhR.png"), #default PS2 Logo
+                    large_image=f"https://raw.githubusercontent.com/xlenore/ps2-covers/main/covers/{fixed_gamecode}.jpg",
+                    large_text=fixed_gamename,#large image hover text
                     small_image=SMALL_IMAGE_MAP.get(gamecode,"https://i.imgur.com/91Nj3w0.png"),
-                    small_text="PlayStation 2",#hover text
+                    small_text="PlayStation 2",#small image hover text
                     start=time.time(),#timer
                 )
                 logger.info("RPC started: " + gamecode + " - " + gamename)
-                time.sleep(10)#necessary wait to avoit dropped pings on game startup
+                time.sleep(10)#necessary wait to avoid dropped pings on game startup
                 ping_count=1
                 ping_lost=False
                 while ping_count<=PING_GRACE:
@@ -141,10 +158,10 @@ def main():
                 	    #wait before pinging again
                         time.sleep(3)
                     else:
-                        logging.warning("No response from PS2, retrying.. ({}/{})".format(ping_count,PING_GRACE))
+                        logging.warning(f"No response from PS2,. ({ping_count}/{PING_GRACE} attempts)")
                         ping_lost=True
                         ping_count+=1
-                PS2Online = False
+                PS2Online = False                
                 RPC.clear()
                 logging.info("PS2 has gone offline, RPC terminated")
                 #we don't talk about bruno
@@ -160,9 +177,13 @@ def main():
 
 if __name__ == "__main__":
     logging.basicConfig(
-        format="%(asctime)s %(levelname)s: %(message)s",
-        datefmt="%F %H:%M",
+        format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
+        datefmt='%Y-%m-%d %H:%M:%S',
         level=logging.INFO,
     )
     logger = logging.getLogger()
-    main()
+    try:
+        main()
+    except Exception as e:
+        logger.exception(e)
+        time.sleep(4000)
