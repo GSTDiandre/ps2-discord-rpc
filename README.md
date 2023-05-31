@@ -7,12 +7,12 @@ Detects game at launch, maintains rich presence until the console is turned off.
 
 Game covers pulled from [Xlenore's PS2 Covers](https://github.com/xlenore/ps2-covers).
 
-Requires Python 3.8+. Tested with OPL 1.1.0.
+Requires Python 3.8+. Tested with OPL 1.1.0. Only supports PS2 titles for now.
 
 Usage: 
 
 - Head to https://discord.com/developers/applications to create a new application. Its name will be displayed in rich presence, recommended names are "PlayStation 2" or "PS2".
 
-- Download the project as ZIP, open conf.ini and replace CLIENT_ID with new app's client ID, found under the OAuth2 tab. Specify the PS2's IP as well as the host machine's IP in PS2_IP and HOST_IP.
+- Download the project as ZIP, open conf.ini and replace CLIENT_ID with the discord app's client ID, found under the OAuth2 tab. Specify the PS2 and host machine IPs, ensure the PS2 IP is set to STATIC in OPL.
 
-- Run ps2rpc.py as administrator.
+- Run ps2rpc.py as administrator. Boot the console into OPL, then launch a PS2 game.
