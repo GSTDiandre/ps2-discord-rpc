@@ -10946,7 +10946,7 @@ SLUS-21795:Totally Spies! Totally Party
 SLUS-21796:Dora the Explorer - Dora Saves the Snow Princess
 SLUS-21797:Nickelodeon Tak and the Guardians of Gross
 SLUS-21798:Shepherd's Crossing
-SLUS-21799:Kingdom Hearts Re-Chain of Memories
+SLUS-21799:Kingdom Hearts Re:Chain of Memories
 SLUS-21800:Rock Band 2
 SLUS-21801:Need for Speed - Undercover
 SLUS-21802:Naked Brothers Band - The Video Game
