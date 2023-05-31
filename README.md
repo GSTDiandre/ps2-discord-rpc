@@ -13,6 +13,8 @@ Usage:
 
 - Head to https://discord.com/developers/applications to create a new application. Its name will be displayed in rich presence, recommended names are "PlayStation 2" or "PS2".
 
+- Install Python and run `pip install pypresence` in bash or command line
+
 - Download the project as ZIP, open conf.ini and replace CLIENT_ID with the discord app's client ID, found under the OAuth2 tab. Specify the PS2 and host machine IPs, ensure the PS2 IP is set to STATIC in OPL.
 
 - Run ps2rpc.py as administrator. Boot the console into OPL, then launch a PS2 game.
