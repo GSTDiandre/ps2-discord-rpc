@@ -2,7 +2,6 @@ import socket
 import time
 import subprocess
 import logging
-import datetime
 import os
 import sys
 from pypresence import Presence
@@ -17,35 +16,7 @@ PS2_IP = "192.168.1.114"
 PATH = os.path.dirname(os.path.abspath(sys.argv[0]))
 DVD_FILTER = bytes([0x5C, 0x00, 0x44, 0x00, 0x56, 0x00, 0x44, 0x00, 0x5C])
 GAMES_BIN_FILTER = bytes(
-    [
-        0x5C,
-        0x00,
-        0x44,
-        0x00,
-        0x56,
-        0x00,
-        0x44,
-        0x00,
-        0x5C,
-        0x00,
-        0x67,
-        0x00,
-        0x61,
-        0x00,
-        0x6D,
-        0x00,
-        0x65,
-        0x00,
-        0x73,
-        0x00,
-        0x2E,
-        0x00,
-        0x62,
-        0x00,
-        0x69,
-        0x00,
-        0x6E,
-    ]
+    [0x5C, 0x00, 0x44, 0x00, 0x56, 0x00, 0x44, 0x00, 0x5C, 0x00, 0x67, 0x00, 0x61, 0x00, 0x6D, 0x00, 0x65, 0x00, 0x73, 0x00, 0x2E, 0x00, 0x62, 0x00, 0x69, 0x00, 0x6E, ]
 )
 GAMEDB_PATH = PATH + '\\GameDB.txt'
 CONFIG_PATH = PATH + '\\config.ini'
@@ -74,7 +45,7 @@ def load_gamename_map(filename):
     with open(filename, 'r') as file:
         for line in file.readlines():
             code, name = line.split(":", 1)  # this splits the line into 2 parts on the first colon
-            GameDB[code] = name  #this adds a new key/value to the dictionary
+            GameDB[code] = name  # this adds a new key/value to the dictionary
 
 
 def get_fixed_gamename(filename, search_string):
@@ -138,16 +109,16 @@ def main():
                 logger.info("PS2 has come online")
                 PS2Online = True
             # drop last byte
-            slice = message[128:-1]
-            if slice.startswith(GAMES_BIN_FILTER):
+            msg_slice = message[128:-1]
+            if msg_slice.startswith(GAMES_BIN_FILTER):
                 continue
-            elif slice.startswith(DVD_FILTER):
-                gamepath = bytes([c for c in slice if c != 0x00]).decode()
+            elif msg_slice.startswith(DVD_FILTER):
+                gamepath = bytes([c for c in msg_slice if c != 0x00]).decode()
                 gamecode, gamename, _ = remove_prefix(gamepath, "\\DVD\\").rsplit(
                     ".", 2
                 )
                 fixed_gamecode = gamecode.replace('_', '-').replace('.', '')
-                fixed_gamename = GameDB[gamecode]
+                fixed_gamename = GameDB[fixed_gamecode]
                 RPC.update(
                     state=fixed_gamecode,  # middle text
                     details=fixed_gamename,  # top text
@@ -188,7 +159,6 @@ def main():
     # receive a packet
     # disabled promiscuous mode
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
-
 
 if __name__ == "__main__":
     logging.basicConfig(
