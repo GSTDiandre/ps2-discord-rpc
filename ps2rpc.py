@@ -4,15 +4,16 @@ import subprocess
 import logging
 import os
 import sys
+from dotenv import load_dotenv 
 from pypresence import Presence
 
 # TODO Kill RPC after disconnect in OPL
-# TODO log to .log file, signal new sessions
-# TODO read IDs and IPs from config file
+# signal new session
 
-CLIENT_ID = "0123456789123456"  # Fake ID, put your real one here
-HOST_IP = "192.168.1.110"
-PS2_IP = "192.168.1.114"
+load_dotenv()
+CLIENT_ID = os.getenv('CLIENT_ID')
+HOST_IP = os.getenv('HOST_IP')
+PS2_IP = os.getenv('PS2_IP')
 PATH = os.path.dirname(os.path.abspath(sys.argv[0]))
 DVD_FILTER = bytes([0x5C, 0x00, 0x44, 0x00, 0x56, 0x00, 0x44, 0x00, 0x5C])
 GAMES_BIN_FILTER = bytes(
@@ -42,7 +43,7 @@ def remove_prefix(text, prefix):
 
 
 def load_gamename_map(filename):
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         for line in file.readlines():
             code, name = line.split(":", 1)  # this splits the line into 2 parts on the first colon
             GameDB[code] = name  # this adds a new key/value to the dictionary
@@ -161,10 +162,13 @@ def main():
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
 
 if __name__ == "__main__":
+    stream_handler = logging.StreamHandler()
+    file_handler = logging.FileHandler('logs.log')
     logging.basicConfig(
         format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
         datefmt='%Y-%m-%d %H:%M:%S',
         level=logging.INFO,
+        handlers=[stream_handler,file_handler]
     )
     logger = logging.getLogger()
     try:
