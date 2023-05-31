@@ -1,2 +1,4 @@
 *.log
 *.env
+*.ico
+convert_gameIndex.py

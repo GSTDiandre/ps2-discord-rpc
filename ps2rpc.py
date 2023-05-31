@@ -131,7 +131,7 @@ def main():
                     small_text="PlayStation 2",  # small image hover text
                     start=time.time(),  # timer
                 )
-                logger.info("RPC started: " + gamecode + " - " + gamename)
+                logger.info("RPC started: " + gamecode + " - " + fixed_gamename)
                 time.sleep(10)  # necessary wait to avoid dropped pings on game startup
                 ping_count = 1
                 ping_lost = False
