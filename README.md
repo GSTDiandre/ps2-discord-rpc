@@ -28,6 +28,7 @@ Usage:
 
 - Head to [Discord's developer portal](https://discord.com/developers/applications) to create a new application. Its name will be displayed in rich presence, recommended names are "PlayStation 2" or "PS2". Copy `Client ID` under `OAuth2`.
 - Install [Python](https://www.python.org/downloads/), then run `pip install pypresence` and `pip install python-dotenv` in bash or command line prompt
-- Download the latest release, open `.env` using a text editor and replace `CLIENT_ID` with the discord app's client ID, found under the OAuth2 tab. Specify the PS2 and host machine IPs as `PS2_IP` and `HOST_IP`, ensure the PS2 IP is set to STATIC in OPL.
-- Run ps2rpc.py as administrator by opening an elevated command prompt and using `python ps2rpc.py`. 
+- Download the latest release, open `.env` using a text editor and replace `CLIENT_ID` with the discord app's client ID. Specify the PS2 and host machine IPs as `PS2_IP` and `HOST_IP`, ensure the PS2 IP is set to STATIC in OPL.
+- Run ps2rpc.py as administrator by opening an elevated command prompt in the same directory and using `python ps2rpc.py`. 
 - Boot the console into OPL, then launch a PS2 game.
+- (Optional) Set up a batch file to execute the script in one click, or schedule an event to run it on startup.
