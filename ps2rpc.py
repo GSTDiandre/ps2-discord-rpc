@@ -87,7 +87,7 @@ def main():
     logger.info(f"PS2 IP is set as {PS2_IP}")
     logger.info(f"PS2 IP is set as {HOST_IP}")
     load_gamename_map(GAMEDB_PATH)
-    logger.info(f"GameDB loaded {len(GameDB)} Game(s)")
+    logger.info(f"GameDB: loaded {len(GameDB)} game(s)")
     RPC = Presence(CLIENT_ID)  # Initialize the client class
     RPC.connect()  # Start the handshake loop
     # create a raw socket and bind it to the public interface
@@ -120,7 +120,7 @@ def main():
                     ".", 2
                 )
                 fixed_gamecode = gamecode.replace('_', '-').replace('.', '')
-                fixed_gamename = GameDB[fixed_gamecode]
+                fixed_gamename = GameDB[fixed_gamecode][:-1]
                 RPC.update(
                     state=fixed_gamecode,  # middle text
                     details=fixed_gamename,  # top text
