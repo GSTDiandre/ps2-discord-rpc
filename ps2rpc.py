@@ -10,7 +10,7 @@ from pypresence import Presence
 # TODO log to .log file, signal new sessions
 # TODO read IDs and IPs from config file
 
-CLIENT_ID = "1112585966562070639"  # Fake ID, put your real one here
+CLIENT_ID = "0123456789123456"  # Fake ID, put your real one here
 HOST_IP = "192.168.1.110"
 PS2_IP = "192.168.1.114"
 PATH = os.path.dirname(os.path.abspath(sys.argv[0]))

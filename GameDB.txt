@@ -220,7 +220,7 @@ SCAJ-20135:Minna Daisuki Katamari Damacy
 SCAJ-20136:Ace Combat 5 - The Unsung War [PlayStation 2 The Best]
 SCAJ-20137:Musashiden II - Blademaster
 SCAJ-20138:Ape Escape 3
-SCAJ-20139:Zero - Shisei no Koe # Fatal Frame - Rei - Irezumi no Sei
+SCAJ-20139:Zero - Shisei no Koe
 SCAJ-20140:Bleach - Erabareshi Tamashi
 SCAJ-20141:Grandia III
 SCAJ-20143:Armored Core - Last Raven
@@ -331,7 +331,7 @@ SCED-50149:Official PlayStation 2 Magazine Demo 14
 SCED-50150:Official PlayStation 2 Magazine Demo 15
 SCED-50151:Official PlayStation 2 Magazine Demo 16
 SCED-50152:Official PlayStation 2 Magazine Demo 17
-SCED-50153:Official PlayStation 2 Magazine Demo 18 # Australian
+SCED-50153:Official PlayStation 2 Magazine Demo 18
 SCED-50154:Official PlayStation 2 Magazine Demo 19
 SCED-50162:Official PS2 Magazine UK Greatest Hits Vol 2 - Special Ed - A-Z of PS2
 SCED-50163:PlayStation 2 Greatest Hits Vol.3 [Demo]
@@ -339,28 +339,28 @@ SCED-50254:Official Review of the 2000 FIA Formula 1 World Championship [Formula
 SCED-50286:Red Faction [Demo]
 SCED-50313:Formula One 2001 [Demo]
 SCED-50381:Official PlayStation 2 Magazine Demo 8
-SCED-50404:Official PlayStation 2 Magazine Demo 10 # German
-SCED-50460:Official PlayStation 2 Magazine Demo 11 # German
-SCED-50463:Official PlayStation 2 Magazine Demo 11 # French
-SCED-50506:Official PlayStation 2 Magazine Demo 12 # German
+SCED-50404:Official PlayStation 2 Magazine Demo 10
+SCED-50460:Official PlayStation 2 Magazine Demo 11
+SCED-50463:Official PlayStation 2 Magazine Demo 11
+SCED-50506:Official PlayStation 2 Magazine Demo 12
 SCED-50520:World Rally Championship [Demo]
-SCED-50543:Official PlayStation 2 Magazine Demo 12 # French
-SCED-50593:Official PlayStation 2 Magazine Demo 13 # French
-SCED-50594:Official PlayStation 2 Magazine Demo 13 # German
-SCED-50610:Official PlayStation 2 Magazine Demo 14 # Australian
+SCED-50543:Official PlayStation 2 Magazine Demo 12
+SCED-50593:Official PlayStation 2 Magazine Demo 13
+SCED-50594:Official PlayStation 2 Magazine Demo 13
+SCED-50610:Official PlayStation 2 Magazine Demo 14
 SCED-50614:Jak and Daxter - The Precursor Legacy [Demo]
-SCED-50622:Official PlayStation 2 Magazine Demo 14 # German
+SCED-50622:Official PlayStation 2 Magazine Demo 14
 SCED-50633:Gravity Sucks
 SCED-50642:Final Fantasy X [Demo] [Final Fantasy VI PS1 - Bonus Disc]
 SCED-50675:Official PlayStation 2 Magazine Demo 16
 SCED-50685:Official PlayStation 2 Magazine Demo 15
-SCED-50697:Official PlayStation 2 Magazine Demo 17 # German
-SCED-50698:Official PlayStation 2 Magazine Demo 18 # German
-SCED-50699:Official PlayStation 2 Magazine Demo 20 # German
-SCED-50700:Official PlayStation 2 Magazine Demo 21 # German
-SCED-50701:Official PlayStation 2 Magazine Demo 22 # German
+SCED-50697:Official PlayStation 2 Magazine Demo 17
+SCED-50698:Official PlayStation 2 Magazine Demo 18
+SCED-50699:Official PlayStation 2 Magazine Demo 20
+SCED-50700:Official PlayStation 2 Magazine Demo 21
+SCED-50701:Official PlayStation 2 Magazine Demo 22
 SCED-50734:PS2 Bonus Demo Jan 2002
-SCED-50736:Official PlayStation 2 Magazine Demo 16 # German
+SCED-50736:Official PlayStation 2 Magazine Demo 16
 SCED-50742:Official PlayStation 2 Magazine Demo 21
 SCED-50743:Official PlayStation 2 Magazine Demo 20
 SCED-50744:Official PlayStation 2 Magazine Demo 22
@@ -379,19 +379,19 @@ SCED-51016:Official PlayStation 2 Magazine Demo 22-23
 SCED-51075:Ratchet & Clank [Regular Demo]
 SCED-51140:PS2 Bonus Demo 03
 SCED-51147:Official PlayStation 2 Magazine Demo 24
-SCED-51185:Official PlayStation 2 Magazine Demo 24 # German
-SCED-51262:Official PlayStation 2 Magazine Demo 25 # German
+SCED-51185:Official PlayStation 2 Magazine Demo 24
+SCED-51262:Official PlayStation 2 Magazine Demo 25
 SCED-51279:Official PlayStation 2 Magazine Demo 25
-SCED-51319:Official PlayStation 2 Magazine Demo 27 # German
+SCED-51319:Official PlayStation 2 Magazine Demo 27
 SCED-51352:Gran Turismo - Nissan Micra Edition [Demo]
 SCED-51359:Official PlayStation 2 Magazine Demo 27
-SCED-51376:Official PlayStation 2 Magazine Demo 28 # German
+SCED-51376:Official PlayStation 2 Magazine Demo 28
 SCED-51384:Official PlayStation 2 Magazine Demo 29
-SCED-51432:Official PlayStation 2 Magazine Demo 29 # German
+SCED-51432:Official PlayStation 2 Magazine Demo 29
 SCED-51440:Official PlayStation 2 Magazine Demo 29
 SCED-51457:Official PlayStation 2 Magazine Demo 30
-SCED-51483:Official PlayStation 2 Magazine Demo 30 # German
-SCED-51485:Official PlayStation 2 Magazine Demo 30 # Australian
+SCED-51483:Official PlayStation 2 Magazine Demo 30
+SCED-51485:Official PlayStation 2 Magazine Demo 30
 SCED-51486:Bonus Demo 4
 SCED-51489:Official PlayStation 2 Magazine Demo 30
 SCED-51529:Official PlayStation 2 Magazine Demo 31
@@ -409,26 +409,26 @@ SCED-51540:Official PlayStation 2 Magazine Demo 39
 SCED-51556:Official PlayStation 2 Magazine Demo 31
 SCED-51558:Official PlayStation 2 Magazine Demo 32
 SCED-51559:Official PlayStation 2 Magazine Demo 33
-SCED-51560:Official PlayStation 2 Magazine Demo 34 # French
+SCED-51560:Official PlayStation 2 Magazine Demo 34
 SCED-51561:Official PlayStation 2 Magazine Demo 35
 SCED-51563:Official PlayStation 2 Magazine Demo 37
 SCED-51565:Official PlayStation 2 Magazine Demo 40
-SCED-51566:Official PlayStation 2 Magazine Demo 31 # German
-SCED-51567:Official PlayStation 2 Magazine Demo 32 # German
-SCED-51568:Official PlayStation 2 Magazine Demo 33 # German
-SCED-51569:Official PlayStation 2 Magazine Demo 34 # German
-SCED-51570:Official PlayStation 2 Magazine Demo 35 # German
-SCED-51571:Official PlayStation 2 Magazine Demo 36 # German
-SCED-51572:Official PlayStation 2 Magazine Demo 37 # German
-SCED-51573:Official PlayStation 2 Magazine Demo 38 # German
-SCED-51575:Official PlayStation 2 Magazine Demo 40 # German
+SCED-51566:Official PlayStation 2 Magazine Demo 31
+SCED-51567:Official PlayStation 2 Magazine Demo 32
+SCED-51568:Official PlayStation 2 Magazine Demo 33
+SCED-51569:Official PlayStation 2 Magazine Demo 34
+SCED-51570:Official PlayStation 2 Magazine Demo 35
+SCED-51571:Official PlayStation 2 Magazine Demo 36
+SCED-51572:Official PlayStation 2 Magazine Demo 37
+SCED-51573:Official PlayStation 2 Magazine Demo 38
+SCED-51575:Official PlayStation 2 Magazine Demo 40
 SCED-51657:Official Playstation Magazine Demo 33
 SCED-51700:Jak II - Renegade [Demo]
 SCED-51922:Ghosthunter [Demo]
-SCED-51935:Official PlayStation 2 Magazine Demo 38 # German
+SCED-51935:Official PlayStation 2 Magazine Demo 38
 SCED-51940:Bonus Demo 5
 SCED-51941:Bonus Demo 5
-SCED-52037:Official PlayStation 2 Magazine Demo 39 # German
+SCED-52037:Official PlayStation 2 Magazine Demo 39
 SCED-52049:Dog's Life [Demo]
 SCED-52051:Official PlayStation 2 Magazine Demo 43
 SCED-52052:Official PlayStation 2 Magazine Demo 44
@@ -437,34 +437,34 @@ SCED-52054:Official PlayStation 2 Magazine Demo 40
 SCED-52057:Official Playstation Magazine Demo Disc 40
 SCED-52260:Forbidden Siren [Demo]
 SCED-52261:Jet Li - Rise to Honor [Demo]
-SCED-52068:Official PlayStation 2 Magazine Demo 41 # German
-SCED-52069:Official PlayStation 2 Magazine Demo 42 # German
-SCED-52076:Official PlayStation 2 Magazine Demo 49 # German
-SCED-52080:Official PlayStation 2 Magazine Demo 53 # German
+SCED-52068:Official PlayStation 2 Magazine Demo 41
+SCED-52069:Official PlayStation 2 Magazine Demo 42
+SCED-52076:Official PlayStation 2 Magazine Demo 49
+SCED-52080:Official PlayStation 2 Magazine Demo 53
 SCED-52081:Official PlayStation 2 Magazine Demo 41
 SCED-52083:Official PlayStation 2 Magazine Demo 43
 SCED-52085:Official PlayStation 2 Magazine Demo 45
-SCED-52087:Official PlayStation 2 Magazine Demo 47 # German
+SCED-52087:Official PlayStation 2 Magazine Demo 47
 SCED-52088:Official PlayStation 2 Magazine Demo 48
-SCED-52090:Official PlayStation 2 Magazine Demo 50 # German
+SCED-52090:Official PlayStation 2 Magazine Demo 50
 SCED-52091:Official PlayStation 2 Magazine Demo 51
-SCED-52092:Official PlayStation 2 Magazine Demo 52 # German
-SCED-52120:Official PlayStation 2 Magazine Demo 55 # German
+SCED-52092:Official PlayStation 2 Magazine Demo 52
+SCED-52120:Official PlayStation 2 Magazine Demo 55
 SCED-52141:WRC 3 [Demo]
 SCED-52160:Official PlayStation 2 Magazine Demo 45
 SCED-52161:Official PlayStation 2 Magazine Demo 46
 SCED-52162:Official PlayStation 2 Magazine Demo 47
 SCED-52163:Official PlayStation 2 Magazine Demo 48
 SCED-52164:Official PlayStation 2 Magazine Demo 49
-SCED-52165:Official PlayStation 2 Magazine Demo 50 # United Kingdom
-SCED-52166:Official PlayStation 2 Magazine Demo 51 # United Kingdom
-SCED-52167:Official PlayStation 2 Magazine Demo 52 # United Kingdom
-SCED-52168:Official PlayStation 2 Magazine Demo 53 # United Kingdom
+SCED-52165:Official PlayStation 2 Magazine Demo 50
+SCED-52166:Official PlayStation 2 Magazine Demo 51
+SCED-52167:Official PlayStation 2 Magazine Demo 52
+SCED-52168:Official PlayStation 2 Magazine Demo 53
 SCED-52169:Official PlayStation 2 Magazine Demo 54
-SCED-52170:Official PlayStation 2 Magazine Demo 55 # United Kingdom
+SCED-52170:Official PlayStation 2 Magazine Demo 55
 SCED-52177:Official PlayStation 2 Magazine Demo 41
 SCED-52185:Official PlayStation 2 Magazine Demo 41
-SCED-52196:Official PS2 Magazine Demo 22 Special Ed - It's Here # United Kingdom
+SCED-52196:Official PS2 Magazine Demo 22 Special Ed - It's Here
 SCED-52270:Official PlayStation 2 Magazine Demo 42
 SCED-52271:Official PlayStation 2 Magazine Demo 42
 SCED-52273:Official PlayStation 2 Magazine Demo 42
@@ -497,13 +497,13 @@ SCED-52938:Official PlayStation 2 Magazine Demo 52
 SCED-52952:Jak 3 [Demo]
 SCED-52970:SCEE Hits Demo
 SCED-52990:Official PlayStation 2 Magazine Demo 53
-SCED-52991:Official PlayStation 2 Magazine Demo 53 # French
-SCED-53056:Official PlayStation 2 Magazine Demo 54 # German
-SCED-53068:Official PlayStation 2 Magazine Demo 54 # French
+SCED-52991:Official PlayStation 2 Magazine Demo 53
+SCED-53056:Official PlayStation 2 Magazine Demo 54
+SCED-53068:Official PlayStation 2 Magazine Demo 54
 SCED-53122:Official PlayStation 2 Magazine Demo 56
 SCED-53123:Official PlayStation 2 Magazine Demo 55
 SCED-53132:Official PlayStation 2 Magazine Demo 56
-SCED-53159:Official PlayStation 2 Magazine Demo 57 # German
+SCED-53159:Official PlayStation 2 Magazine Demo 57
 SCED-53160:Official PlayStation 2 Magazine Demo 57
 SCED-53161:Official PlayStation 2 Magazine Demo 58
 SCED-53162:Official PlayStation 2 Magazine Demo 59
@@ -518,18 +518,18 @@ SCED-53170:Official PlayStation 2 Magazine Demo 67
 SCED-53171:Official PlayStation 2 Magazine Demo 68
 SCED-53175:Official PlayStation 2 Magazine Demo 40
 SCED-53176:Official PlayStation 2 Magazine Demo 56
-SCED-53206:Official PlayStation 2 Magazine Demo 58 # German
-SCED-53207:Official PlayStation 2 Magazine Demo 59 # German
-SCED-53208:Official PlayStation 2 Magazine Demo 60 # German
-SCED-53209:Official PlayStation 2 Magazine Demo 61 # German
-SCED-53210:Official PlayStation 2 Magazine Demo 62 # German
-SCED-53211:Official PlayStation 2 Magazine Demo 63 # German
-SCED-53212:Official PlayStation 2 Magazine Demo 64 # German
-SCED-53213:Official PlayStation 2 Magazine Demo 65 # German
-SCED-53214:Official PlayStation 2 Magazine Demo 66 # German
-SCED-53215:Official PlayStation 2 Magazine Demo 67 # German
-SCED-53216:Official PlayStation 2 Magazine Demo 68 # German
-SCED-53217:Official PlayStation 2 Magazine Demo 69 # German
+SCED-53206:Official PlayStation 2 Magazine Demo 58
+SCED-53207:Official PlayStation 2 Magazine Demo 59
+SCED-53208:Official PlayStation 2 Magazine Demo 60
+SCED-53209:Official PlayStation 2 Magazine Demo 61
+SCED-53210:Official PlayStation 2 Magazine Demo 62
+SCED-53211:Official PlayStation 2 Magazine Demo 63
+SCED-53212:Official PlayStation 2 Magazine Demo 64
+SCED-53213:Official PlayStation 2 Magazine Demo 65
+SCED-53214:Official PlayStation 2 Magazine Demo 66
+SCED-53215:Official PlayStation 2 Magazine Demo 67
+SCED-53216:Official PlayStation 2 Magazine Demo 68
+SCED-53217:Official PlayStation 2 Magazine Demo 69
 SCED-53225:Official PlayStation 2 Magazine Demo 58
 SCED-53228:Official PlayStation 2 Magazine Demo 57
 SCED-53288:Official PlayStation 2 Magazine Demo 58
@@ -539,8 +539,8 @@ SCED-53291:Official PlayStation 2 Magazine Demo 61
 SCED-53292:Official PlayStation 2 Magazine Demo 62
 SCED-53293:Official PlayStation 2 Magazine Demo 63
 SCED-53316:SingStar Pop [Demo]
-SCED-53325:Official PlayStation 2 Magazine Demo 58 # Spanish/Portuguese
-SCED-53348:Official PlayStation 2 Magazine Demo 58 # French
+SCED-53325:Official PlayStation 2 Magazine Demo 58
+SCED-53348:Official PlayStation 2 Magazine Demo 58
 SCED-53447:Formula One 05 [Press Kit Demo]
 SCED-53448:Formula One 05 [Demo]
 SCED-53513:Bonus Demo 10
@@ -549,11 +549,11 @@ SCED-53515:Bonus Demo 10
 SCED-53622:24 - The Game [Demo]
 SCED-53679:Fire It Up Lads [Demo]
 SCED-53684:SingStar '80s [Demo]
-SCED-53854:Official PS2 Magazine French Christmas Special # French
+SCED-53854:Official PS2 Magazine French Christmas Special
 SCED-53905:Official PlayStation 2 Magazine Italia Special Sport Demo
-SCED-53916:Official PlayStation 2 Magazine Demo 67 # French
-SCED-53932:Official PlayStation 2 Magazine Demo 67 # Spanish
-SCED-53939:Official PlayStation 2 Magazine Demo 67 # Australian
+SCED-53916:Official PlayStation 2 Magazine Demo 67
+SCED-53932:Official PlayStation 2 Magazine Demo 67
+SCED-53939:Official PlayStation 2 Magazine Demo 67
 SCED-53962:Shadow of the Colossus [Demo]
 SCED-53978:Official PlayStation 2 Magazine Demo 69
 SCED-54001:Official PlayStation 2 Magazine Demo 69
@@ -567,24 +567,24 @@ SCED-54046:Official PlayStation 2 Magazine Demo 74
 SCED-54047:Official PlayStation 2 Magazine Demo 75
 SCED-54048:Official PlayStation 2 Magazine Demo 76
 SCED-54049:Official PlayStation 2 Magazine Demo 77
-SCED-54050:Official PlayStation 2 Magazine Demo 71 # German
-SCED-54051:Official PlayStation 2 Magazine Demo 72 # German
-SCED-54052:Official PlayStation 2 Magazine Demo 73 # German
-SCED-54053:Official PlayStation 2 Magazine Demo 74 # German
-SCED-54054:Official PlayStation 2 Magazine Demo 75 # German
-SCED-54055:Official PlayStation 2 Magazine Demo 76 # German
-SCED-54056:Official PlayStation 2 Magazine Demo 77 # German
-SCED-54057:Official PlayStation 2 Magazine Demo 78 # German
-SCED-54058:Official PlayStation 2 Magazine Demo 79 # German
-SCED-54059:Official PlayStation 2 Magazine Demo 80 # German
-SCED-54070:Official PlayStation 2 Magazine Demo 71 # Spanish/Portuguese
-SCED-54079:Official PlayStation 2 Magazine Demo 71 # French
-SCED-54099:Official PlayStation 2 Magazine Demo 71 # Australian
+SCED-54050:Official PlayStation 2 Magazine Demo 71
+SCED-54051:Official PlayStation 2 Magazine Demo 72
+SCED-54052:Official PlayStation 2 Magazine Demo 73
+SCED-54053:Official PlayStation 2 Magazine Demo 74
+SCED-54054:Official PlayStation 2 Magazine Demo 75
+SCED-54055:Official PlayStation 2 Magazine Demo 76
+SCED-54056:Official PlayStation 2 Magazine Demo 77
+SCED-54057:Official PlayStation 2 Magazine Demo 78
+SCED-54058:Official PlayStation 2 Magazine Demo 79
+SCED-54059:Official PlayStation 2 Magazine Demo 80
+SCED-54070:Official PlayStation 2 Magazine Demo 71
+SCED-54079:Official PlayStation 2 Magazine Demo 71
+SCED-54099:Official PlayStation 2 Magazine Demo 71
 SCED-54101:Bonus Demo 11
 SCED-54102:Bonus Demo 11
 SCED-54105:Bonus Demo 11
-SCED-54144:Official PlayStation 2 Magazine Demo 72 # French
-SCED-54176:Official PlayStation 2 Magazine Demo 73 # BeNeLux
+SCED-54144:Official PlayStation 2 Magazine Demo 72
+SCED-54176:Official PlayStation 2 Magazine Demo 73
 SCED-54202:Official PlayStation 2 Magazine Demo 74
 SCED-54207:Formula One 06 [Demo]
 SCED-54338:Bonus Demo 11
@@ -604,14 +604,14 @@ SCED-54415:Official PlayStation 2 Magazine Demo 90
 SCED-54416:Official PlayStation 2 Magazine Demo 91
 SCED-54417:Official PlayStation 2 Magazine Demo 92
 SCED-54418:Official PlayStation 2 Magazine Demo 93
-SCED-54480:Official PlayStation 2 Magazine Demo 78 # French
-SCED-54481:Official PlayStation 2 Magazine Demo 79 # French
-SCED-54567:Official PlayStation 2 Magazine Demo 80 # Spanish/Portuguese
-SCED-54605:Official PlayStation 2 Magazine Demo 81 # German
-SCED-54642:Official PlayStation 2 Magazine Demo 82 # German
+SCED-54480:Official PlayStation 2 Magazine Demo 78
+SCED-54481:Official PlayStation 2 Magazine Demo 79
+SCED-54567:Official PlayStation 2 Magazine Demo 80
+SCED-54605:Official PlayStation 2 Magazine Demo 81
+SCED-54642:Official PlayStation 2 Magazine Demo 82
 SCED-54682:UPS2 Speciale Platinum 2007
-SCED-54692:Official PlayStation 2 Magazine Demo 83 # German
-SCED-54758:Official PlayStation 2 Magazine Demo 84 # German
+SCED-54692:Official PlayStation 2 Magazine Demo 83
+SCED-54758:Official PlayStation 2 Magazine Demo 84
 SCED-55113:Official PlayStation 2 Magazine Demo 94
 SCED-55114:Official PlayStation 2 Magazine Demo 95
 SCED-55115:Official PlayStation 2 Magazine Demo 96
@@ -662,12 +662,12 @@ SCES-50595:Monsters Inc.
 SCES-50596:Monsters Inc.
 SCES-50597:Monsters en Co - Schrik Eiland
 SCES-50598:Monsterit Oy
-SCES-50599:Monstres & Cie - L'ile de l'�pouvante
+SCES-50599:Monstres & Cie - L'ile de l'épouvante
 SCES-50600:Die Monster AG - Schreckens-Insel
 SCES-50601:Monster & Co - L'Isola dello Spavento
 SCES-50602:Monsters Inc.
 SCES-50603:Monstruos, S.A. - La Isla de los Sustos
-SCES-50604:Monsters, Inc - Skr�mmar�n
+SCES-50604:Monsters, Inc - Skrämmarön
 SCES-50605:Monstros e Companhia - Ilha Assustadora
 SCES-50611:Space Channel 5
 SCES-50612:Space Channel 5 - Part 2
@@ -855,7 +855,7 @@ SCES-53610:SingStar '80s
 SCES-53642:Ape Escape 3
 SCES-53663:Buzz! The Music Quiz
 SCES-53669:Buzz! The Music Quiz
-SCES-53680:WRC avec S�bastien Loeb
+SCES-53680:WRC avec Sébastien Loeb
 SCES-53688:Urban Reign
 SCES-53795:SingStar '80s
 SCES-53851:Forbidden Siren 2
@@ -886,10 +886,10 @@ SCES-54068:AFL Premiership 2006
 SCES-54071:Buzz! The Big Quiz
 SCES-54073:Buzz! The Big Quiz
 SCES-54077:SingStar top.it
-SCES-54078:SingStar Norsk p� Norsk
+SCES-54078:SingStar Norsk på Norsk
 SCES-54094:EyeToy - Play Sports
 SCES-54128:Deutsch Rock-Pop
-SCES-54129:SingStar La Edad de Oro del Pop Espa�ol
+SCES-54129:SingStar La Edad de Oro del Pop Español
 SCES-54131:SingStar Anthems
 SCES-54145:Lemmings
 SCES-54148:Eyetoy Kinetic Combat
@@ -944,12 +944,12 @@ SCES-54597:SingStar Rock Ballads
 SCES-54598:SingStar - Svenska Hits Schlager
 SCES-54599:SingStar '90s
 SCES-54600:SingStar - Die Toten Hosen
-SCES-54601:SingStar - Apr�s-Ski Party
+SCES-54601:SingStar - Après-Ski Party
 SCES-54625:Buzz! Junior - Monster Rumble
 SCES-54637:Gaelic Games - Hurling
 SCES-54638:Gaelic Games - Football 2
 SCES-54639:AFL Premiership 2007
-SCES-54641:SingStar - Apr�s-Ski Party 2
+SCES-54641:SingStar - Après-Ski Party 2
 SCES-54676:Buzz! Junior - RoboJam
 SCES-54688:ATV Offroad Fury 4
 SCES-54741:SingStar Deutsch Rock-Pop Vol. 2
@@ -994,13 +994,13 @@ SCES-55128:SingStar Summer Party
 SCES-55158:SingStar Pop Hits 4
 SCES-55159:SingStar Amped
 SCES-55160:SingStar Hottest Hits
-SCES-55173:SingStar Operaci�n Triunfo
+SCES-55173:SingStar Operación Triunfo
 SCES-55176:SingStar Amped
 SCES-55177:SingStar SuomiRock
 SCES-55178:SingStar Boy Bands vs Girl Bands
 SCES-55179:SingStar Schlager
 SCES-55181:SingStar Italian Party 2
-SCES-55182:SingStar Cl�sicos
+SCES-55182:SingStar Clásicos
 SCES-55183:SingStar Turkish Party [Promo]
 SCES-55210:Buzz! Junior - Ace Racers
 SCES-55213:Buzz! Escuela de Talentos
@@ -1009,7 +1009,7 @@ SCES-55255:SingStar Singalong with Disney
 SCES-55256:SingStar Canciones Disney
 SCES-55257:SingStar - Chansons Magiques de Disney
 SCES-55258:SingStar Best of Disney
-SCES-55259:SingStar Can��es Disney
+SCES-55259:SingStar Canções Disney
 SCES-55260:SingStar e la Magia Disney
 SCES-55261:SingStar Sjung med Disney
 SCES-55262:SingStar Syng med Disney
@@ -1036,7 +1036,7 @@ SCES-55496:Secret Agent Clank
 SCES-55510:Jak and Daxter - The Lost Frontier
 SCES-55513:SingStar Polskie Hity
 SCES-55514:SingStar Studio 100
-SCES-55515:SingStar Morangos com A��car
+SCES-55515:SingStar Morangos com Açúcar
 SCES-55521:SingStar SuomiPop
 SCES-55527:SingStar 2009
 SCES-55535:Desi Adda - Games of India
@@ -1051,13 +1051,13 @@ SCES-55557:SingStar Take That
 SCES-55564:SingStar Made in Germany
 SCES-55566:SingStar Miliki
 SCES-55567:SingStar The Wiggles
-SCES-55568:SingStar Svenska Stj�rnor
+SCES-55568:SingStar Svenska Stjärnor
 SCES-55570:SingStar Chartbreaker
 SCES-55571:Ghostbusters
 SCES-55573:MotorStorm - Arctic Edge
 SCES-55591:Street Cricket Champions
 SCES-55594:SingStar Vasco
-SCES-55606:SingStar Die gr��ten Solok�nstler
+SCES-55606:SingStar Die größten Solokünstler
 SCES-55611:SingStar Chart Hits
 SCES-55612:SingStar SuomiHitIt
 SCES-55616:SingStar Polskie Hity 2
@@ -1066,7 +1066,7 @@ SCES-55618:SingStar Kent
 SCES-55619:SingStar Portugal Hits
 SCES-55621:SingStar Patito Feo
 SCES-55640:SingStar Cantautori Italiani
-SCES-55641:SingStar Apr�s-Ski Party 2
+SCES-55641:SingStar Après-Ski Party 2
 SCES-55649:Cart Kings
 SCES-55650:SingStar SuomiSuosikit
 SCES-55661:RA.ONE - The Game
@@ -1467,7 +1467,7 @@ SCPS-56012:Raw Danger
 SCPS-56013:This is Football 2003
 SCPS-56014:Gungrave
 SCPS-56015:Ninja Assault
-SCPS-56016:Axel Impact - The Extreme Racing # DT Racer
+SCPS-56016:Axel Impact - The Extreme Racing
 SCUS-21295:Tony Hawk's American Wasteland Collector's Edition
 SCUS-21494:Need for Speed - Carbon Collector's Edition
 SCUS-90174:Toy Story 3 [PlayStation 2 Bundle]
@@ -2240,7 +2240,7 @@ SLES-50484:Rayman M
 SLES-50486:Splashdown
 SLES-50487:Space Race
 SLES-50495:Who Wants to be a Millionaire - 2nd Edition
-SLES-50496:Qui veut gagner des millions � Seconde Edition
+SLES-50496:Qui veut gagner des millions – Seconde Edition
 SLES-50497:Wer wird Millionaer 2
 SLES-50498:Grandia II
 SLES-50503:Weakest Link
@@ -2421,7 +2421,7 @@ SLES-50840:Indiana Jones and The Emperor's Tomb
 SLES-50841:Largo Winch - Empire Under Threat
 SLES-50842:Downforce
 SLES-50843:Crashed
-SLES-50845:Medal of Honor - En Premi�re Ligne
+SLES-50845:Medal of Honor - En Première Ligne
 SLES-50846:Medal of Honor - Frontline
 SLES-50848:Speed Kings
 SLES-50849:Urban Freestyle Soccer
@@ -2507,10 +2507,10 @@ SLES-51018:Scooby-Doo! and The Night of 100 Frights
 SLES-51019:Scooby-Doo! and The Night of 100 Frights
 SLES-51022:Virtual Racer - Jaques Villeneuve
 SLES-51023:LMA Manager 2003
-SLES-51024:Roger Lemerre - La S�lection des Champions 2003
+SLES-51024:Roger Lemerre - La Sélection des Champions 2003
 SLES-51025:BDFL Manager 2003
 SLES-51026:Football Manager Campionato 2003
-SLES-51027:M�nager de Liga 2003
+SLES-51027:Mánager de Liga 2003
 SLES-51038:MX Superfly featuring Ricky Carmichael
 SLES-51042:Disney Golf
 SLES-51043:Spyro - Enter the Dragonfly
@@ -2542,7 +2542,7 @@ SLES-51080:Club Football - AC Milan
 SLES-51081:Club Football - Juventus
 SLES-51082:Club Football - Hamburger SV
 SLES-51083:Club Football - Borussia Dortmund
-SLES-51084:Club Football - FC Bayern M�nchen
+SLES-51084:Club Football - FC Bayern München
 SLES-51085:Club Football - Aston Villa
 SLES-51086:Club Football - Chelsea FC
 SLES-51087:Club Football - Leeds United
@@ -2714,7 +2714,7 @@ SLES-51403:Tenchu - Wrath of Heaven
 SLES-51409:Frogger Beyond
 SLES-51418:Fisherman's Challenge
 SLES-51423:Club Football - Celtic FC
-SLES-51425:Fatman & Slim # Beta
+SLES-51425:Fatman & Slim
 SLES-51433:Ghost Vibration
 SLES-51434:Silent Hill 3
 SLES-51435:International Superstar Soccer 3
@@ -2726,11 +2726,11 @@ SLES-51443:Dynasty Warriors 3 - Xtreme Legends
 SLES-51445:Rygar - The Legendary Adventure
 SLES-51448:Resident Evil - Dead Aim
 SLES-51449:Return to Castle Wolfenstein - Operation Resurrection
-SLES-51450:Return to Castle Wolfenstein - Op�ration R�surrection
+SLES-51450:Return to Castle Wolfenstein - Opération Résurrection
 SLES-51451:Whiteout
 SLES-51456:LMA Manager 2004
 SLES-51458:BDFL Manager 2004
-SLES-51459:Roger Lemerre - La S�lection des Champions 2004
+SLES-51459:Roger Lemerre - La Sélection des Champions 2004
 SLES-51460:Football Manager 2004
 SLES-51461:Football Manager 2004
 SLES-51462:Shrek Super Party
@@ -2903,7 +2903,7 @@ SLES-51828:Gladiator - Sword of Vengeance
 SLES-51831:Sphinx and The Cursed Mummy
 SLES-51833:Premier Manager 2003-2004
 SLES-51834:Premier Manager 2003-2004
-SLES-51838:Ast�rix & Ob�lix XXL
+SLES-51838:Astérix & Obélix XXL
 SLES-51839:DragonBall Z - Budokai 2
 SLES-51840:NHL Hitz Pro
 SLES-51841:Spy Hunter 2
@@ -2982,8 +2982,8 @@ SLES-51956:Bionicle
 SLES-51957:Terminator 3 - Rise of the Machines
 SLES-51958:Whiplash
 SLES-51959:Football Generation
-SLES-51960:Disney-Pixar � Procura de Nemo
-SLES-51961:Prince of Persia - The Sands of Time # Pre-order Demo
+SLES-51960:Disney-Pixar À Procura de Nemo
+SLES-51961:Prince of Persia - The Sands of Time
 SLES-51963:FIFA 2004
 SLES-51964:FIFA 2004
 SLES-51966:Bombastic
@@ -3024,7 +3024,7 @@ SLES-52028:Junior Sports Basketball
 SLES-52034:Cat in the Hat, The
 SLES-52036:WWE SmackDown! - Here Comes the Pain!
 SLES-52038:Terminator 3 - Rise of the Machines
-SLES-52039:Terminator 3 - La Rebeli�n de las M�quinas
+SLES-52039:Terminator 3 - La Rebelión de las Máquinas
 SLES-52041:Detonator
 SLES-52043:MX Unleashed Migrated
 SLES-52044:Crescent Suzuki Racing - Superbikes and Super Sidecars
@@ -3319,7 +3319,7 @@ SLES-52651:Club Football 2005 - FC Barcelona
 SLES-52652:Club Football 2005 - Liverpool FC
 SLES-52653:Club Football 2005 - Liverpool FC
 SLES-52654:Club Football 2005 - Real Madrid
-SLES-52655:Club Football 2005 - FC Bayern M�nchen
+SLES-52655:Club Football 2005 - FC Bayern München
 SLES-52656:Club Football 2005 - AC Milan
 SLES-52657:Club Football 2005 - Arsenal
 SLES-52658:Club Football 2005 - Hamburger SV
@@ -3557,7 +3557,7 @@ SLES-53035:Masters of the Universe - He-Man - Defender of Greyskull
 SLES-53036:Tak 2 - The Staff of Dreams
 SLES-53037:Super Monkey Ball Deluxe
 SLES-53038:Devil May Cry 3 - Dante's Awakening
-SLES-53039:Champions - Return to Arms # aka Champions of Norrath 2
+SLES-53039:Champions - Return to Arms
 SLES-53041:RTL Ski Alpine 2005
 SLES-53044:Juiced
 SLES-53045:Street Racing Syndicate
@@ -3567,7 +3567,7 @@ SLES-53049:Punisher, The
 SLES-53052:Robots
 SLES-53058:Ricky Ponting International Cricket
 SLES-53059:Samurai Shodown V
-SLES-53060:Ast�rix & Ob�lix XXL 2 - Mission - Las Vegum
+SLES-53060:Astérix & Obélix XXL 2 - Mission - Las Vegum
 SLES-53061:Atari Anthology
 SLES-53062:Yu Yu Hakusho - Dark Tournament
 SLES-53064:FIFA Street
@@ -3769,7 +3769,7 @@ SLES-53461:Sega Classics Collection
 SLES-53462:Matrix, The - Path of Neo
 SLES-53463:NHL '06
 SLES-53464:Great British Football Quiz, The
-SLES-53465:Maxi Quiz du Foot Fran�ais
+SLES-53465:Maxi Quiz du Foot Français
 SLES-53466:Il Grande Quiz sul Calcio Italiano
 SLES-53468:Family Boardgames
 SLES-53470:De Grote Nederlandse Voetbalquiz
@@ -3788,10 +3788,10 @@ SLES-53490:Outlaw Tennis
 SLES-53491:Karaoke Stage 2
 SLES-53492:Total Overdose
 SLES-53494:Spongebob SquarePants - Lights, Camera, PANTS!
-SLES-53495:Nickelodeon Bob L'�ponge - Silence on Tourne!
+SLES-53495:Nickelodeon Bob L'éponge - Silence on Tourne!
 SLES-53496:Spongebob SquarePants - Lights, Camera, PANTS!
 SLES-53497:Nickelodeon SpongeBob Schwammkopf - Film ab!
-SLES-53498:Nickelodeon Bob Esponja - �Luces, C�mara, Esponja!
+SLES-53498:Nickelodeon Bob Esponja - ¡Luces, Cámara, Esponja!
 SLES-53499:Nickelodeon SpongeBob SquarePants - Licht uit, Camera aan!
 SLES-53501:Star Wars - Battlefront II
 SLES-53502:Star Wars - Battlefront II
@@ -3880,7 +3880,7 @@ SLES-53635:NASCAR '06 - Total Team Control
 SLES-53636:TY the Tasmanian Tiger 3 - Night of the Quinkan
 SLES-53638:Ski Racing 2006
 SLES-53639:Ford Street Racing
-SLES-53640:Das Gro�e deutsche Fu�ball-Quiz
+SLES-53640:Das Große deutsche Fußball-Quiz
 SLES-53641:Destroy All Humans!
 SLES-53644:Gene Troopers
 SLES-53645:Knights of the Temple II
@@ -3931,7 +3931,7 @@ SLES-53717:Midnight Club 3 - DUB Edition Remix
 SLES-53718:Sims 2, The
 SLES-53722:Call of Duty 2 - Big Red One [Collector's Edition]
 SLES-53724:World Series of Poker
-SLES-53725:Ast�rix & Ob�lix XXL 2 - Mission - Las Vegum
+SLES-53725:Astérix & Obélix XXL 2 - Mission - Las Vegum
 SLES-53726:Harry Potter and the Goblet of Fire
 SLES-53727:Harry Potter and the Goblet of Fire
 SLES-53728:Harry Potter and the Goblet of Fire
@@ -3999,7 +3999,7 @@ SLES-53832:BloodRayne 2
 SLES-53846:Soccer Life II
 SLES-53847:Street Golfer
 SLES-53848:Flow - Urban Dance Uprising
-SLES-53849:Ast�rix & Ob�lix XXL 2 - Mission - Las Vegum
+SLES-53849:Astérix & Obélix XXL 2 - Mission - Las Vegum
 SLES-53850:Teenage Mutant Ninja Turtles 3 - Mutant Nightmare
 SLES-53852:Taito Legends 2
 SLES-53853:Final Fight - Streetwise
@@ -4405,10 +4405,10 @@ SLES-54588:Brunswick Pro Bowling
 SLES-54589:Global Defence Force Tactics
 SLES-54590:Hard Knock High
 SLES-54591:Special Forces
-SLES-54592:P�tanque Pro
+SLES-54592:Pétanque Pro
 SLES-54593:Space Rebellion
 SLES-54596:Heatseeker
-SLES-54604:�Qu� Pasa Neng! El Videojuego
+SLES-54604:¡Qué Pasa Neng! El Videojuego
 SLES-54606:Harley-Davidson - Race to the Rally
 SLES-54607:MTV Pimp My Ride
 SLES-54608:Barbie in The 12 Dancing Princesses
@@ -4571,8 +4571,8 @@ SLES-54882:Gecko Blaster
 SLES-54883:Alone in the Dark
 SLES-54884:Alone in the Dark
 SLES-54885:Moto X Maniac
-SLES-54886:Ast�rix aux Jeux Olympiques
-SLES-54887:Thrillville - Verr�ckte Achterbahn
+SLES-54886:Astérix aux Jeux Olympiques
+SLES-54887:Thrillville - Verrückte Achterbahn
 SLES-54888:Pro Biker 2
 SLES-54889:SWAT Siege
 SLES-54890:Clever Kids - Dino Land
@@ -4694,7 +4694,7 @@ SLES-55047:Ocean Commander
 SLES-55048:Star Trek - Conquest
 SLES-55049:Toy Golf Extreme
 SLES-55050:MX vs. ATV - Untamed
-SLES-55051:MX vs. ATV Extr�me Limite
+SLES-55051:MX vs. ATV Extrême Limite
 SLES-55052:Alvin and the Chipmunks
 SLES-55053:Jetix - Puzzle Buzzle
 SLES-55055:Stealth Force 2
@@ -5058,7 +5058,7 @@ SLKA-15007:GrowLanser2
 SLKA-15008:Choro Q HG 2
 SLKA-15009:Hudson Selection Vol. 4 - Takahashi Meijin no Bouken Jima
 SLKA-15011:XII Stag
-SLKA-15013:Grand Slam 2003 Tennis # Hard Hitter 2
+SLKA-15013:Grand Slam 2003 Tennis
 SLKA-15015:Ichigeki Sacchuu!! HoiHoi-San
 SLKA-15016:Harry Potter - Quidditch World Cup
 SLKA-15018:Kidou Senshi Gundam Seed
@@ -6018,8 +6018,8 @@ SLPM-62627:Oretachi Geasen Zoku Sono Vol.02 - Crazy Climber
 SLPM-62628:Oretachi Geasen Zoku Sono Vol.03 - Karate Michi
 SLPM-62629:Mahjong Haoh - Battle Royal
 SLPM-62630:Sukusuku Inufuku [Hamster The Best]
-SLPM-62631:Simple 2000 Series 2-in-1 Vol. 3 - The Puzzle Collection 2000 Toi & The Touyou Sandai Senjitsu Fusui, Seimeidanhan, Ekisen [Disc1of2]
-SLPM-62632:Simple 2000 Series 2-in-1 Vol. 3 - The Puzzle Collection 2000 Toi & The Touyou Sandai Senjitsu Fusui, Seimeidanhan, Ekisen [Disc2of2]
+SLPM-62631:Simple 2000 Series 2-in-1 Vol. 3 - The Puzzle Collection 2000 Toi & The Touyou Sandai Senjitsu Fusui, Seimeidanhan, Ekisen Disc1of2]
+SLPM-62632:Simple 2000 Series 2-in-1 Vol. 3 - The Puzzle Collection 2000 Toi & The Touyou Sandai Senjitsu Fusui, Seimeidanhan, Ekisen Disc2of2]
 SLPM-62633:Simple 2000 Series 2-in-1 Vol. 2 - The Bass Fishing & The Bowling Hyper [Disc1of2]
 SLPM-62634:Simple 2000 Series 2-in-1 Vol. 2 - The Bass Fishing & The Bowling Hyper [Disc2of2]
 SLPM-62635:Simple 2000 Series Ultimate Vol. 26 - Love - Smash! 5.1 - Tennis Robo no Gyakushuu
@@ -6148,8 +6148,8 @@ SLPM-64501:Jin Samguk Mussang
 SLPM-64502:Winback
 SLPM-64504:Maximo
 SLPM-64507:Wave Rally
-SLPM-64509:Crash Bandicoot - Return of the Demon King [English Dub Edition] # Wrath of Cortex
-SLPM-64513:Crash Bandicoot - Mawangui Buwhal # Wrath of Cortex
+SLPM-64509:Crash Bandicoot - Return of the Demon King [English Dub Edition]
+SLPM-64513:Crash Bandicoot - Mawangui Buwhal
 SLPM-64514:Legends of Wrestling
 SLPM-64521:Raging Bless - Hangma Muksirok
 SLPM-64522:La Pucelle
@@ -7651,7 +7651,7 @@ SLPM-66714:Wrestle Kingdom 2 - Pro Wrestling Sekai Taisen
 SLPM-66715:Shinki Gensou Spectral Souls II [IF Collection]
 SLPM-66716:Growlanser VI
 SLPM-66717:Standard Daisenryaku - Dengekisen [Sega the Best]
-SLPM-66718:Sutandado Daisenryaku - Ushinawareta Shoeri [Sega the Best]
+SLPM-66718:Sutandādo Daisenryaku - Ushinawareta Shoeri [Sega the Best]
 SLPM-66719:Tenka-bito [Sega the Best]
 SLPM-66720:Guilty Gear XX #Slash [Sega the Best]
 SLPM-66721:Musou Orochi
@@ -8093,7 +8093,7 @@ SLPS-20048:Sim Theme Park
 SLPS-20050:Happy! Happy!! Boarders in Hokkaidou Rusutsu Resort
 SLPS-20051:Hissatsu Pachinko Station V
 SLPS-20052:Global Folktale
-SLPS-20053:Tenshi no Present - Maru Oukoku Monogatari
+SLPS-20053:Tenshi no Present - Māru Oukoku Monogatari
 SLPS-20054:FIFA World Championship 2001
 SLPS-20055:Technictix
 SLPS-20056:Colorio - Hagaki Print
@@ -9175,7 +9175,7 @@ SLPS-25858:Dengeki SP - Shakugan no Shana
 SLPS-25859:Orange Honey - Boku wa Kimi ni Koishiteru [Best Version]
 SLPS-25860:Code Geass - Hangyaku no Lelouch - Lost Colors
 SLPS-25861:Hisshou Pachinko - Pachi-Slot Kouryoku Series Vol.10 [Special Price Edition]
-SLPS-25862:Hisshou Pachinko - Pachi-Slot Kouryoku Series Vol.05 - CR Neon Genesis Evangelion Sekandoinpakuto & Pachislot Neon Genesis Evangelion [Special Price Edition]
+SLPS-25862:Hisshou Pachinko - Pachi-Slot Kouryoku Series Vol.05 - CR Neon Genesis Evangelion Sekandoinpakuto & Pachislot Neon GenesisEvangelion [Special Price Edition]
 SLPS-25863:Fatal Fury - Battle Archives 1 [SNK the Best]
 SLPS-25864:Fatal Fury - Battle Archives 2 [SNK the Best]
 SLPS-25865:King of Fighters, The - Nests [SNK the Best]
@@ -10181,11 +10181,11 @@ SLUS-20969:S.L.A.I. - Steel Lancer Arena International - Phantom Crash
 SLUS-20970:Rumble Roses
 SLUS-20971:Metal Slug 4 & 5 [Disc1of2]
 SLUS-20972:Samurai Shodown V
-SLUS-20973:Champions - Return to Arms # aka Champions of Norrath 2
+SLUS-20973:Champions - Return to Arms
 SLUS-20974:Shin Megami Tensei - Digital Devil Saga
 SLUS-20975:One Piece - Grand Battle
 SLUS-20976:Ford Racing 3
-SLUS-20977:Virtua Quest # aka Virtua Fighter Cyber Generation
+SLUS-20977:Virtua Quest
 SLUS-20978:Power Drome
 SLUS-20979:Suikoden IV
 SLUS-20980:Ys - The Ark of Napishtim
@@ -10939,7 +10939,7 @@ SLUS-21787:TNA Impact! Total Nonstop Action Wrestling
 SLUS-21788:Ar tonelico II - Melody of Metafalica
 SLUS-21789:Cabela's Legendary Adventures
 SLUS-21790:Shrek's Carnival Craze
-SLUS-21791:Bratz - Girlz Really Rock # Also has french
+SLUS-21791:Bratz - Girlz Really Rock
 SLUS-21793:DT Carnage
 SLUS-21794:Go, Diego, Go! Great Dinosaur Rescue
 SLUS-21795:Totally Spies! Totally Party
@@ -11221,7 +11221,7 @@ SLUS-29118:Need for Speed - Underground 2 [Demo]
 SLUS-29123:Ghost in the Shell - Stand Alone Complex [Demo]
 SLUS-29124:Fight Club [Demo]
 SLUS-29125:Konami Preview Disc
-SLUS-29126:Champions - Return to Arms [Demo] # aka Champions of Norrath 2 [Demo]
+SLUS-29126:Champions - Return to Arms [Demo]
 SLUS-29127:FIFA Soccer 2005 [Demo]
 SLUS-29129:25 to Life [Public Beta Vol.1.0]
 SLUS-29130:Crash 'N' Burn [Public Beta Vol.1.0]
@@ -11330,7 +11330,7 @@ TCPS-10182:Rozen Maiden - Gebetgarten [Limited Edition]
 TCPS-10183:Taito Memories II - Gekan
 TCPS-10184:Rozen Maiden - Duellwalzer [Taito the Best]
 TLES-52149:Splinter Cell - Pandora Tomorrow Beta Trial Code
-TLES-52339:Crash �N� Burn Beta Trial Code
+TLES-52339:Crash ‘N’ Burn Beta Trial Code
 TLES-52707:Monster Hunter Beta Trial Code
 TLES-52781:WWE - Smackdown Vs Raw Beta Trial Code
 TLES-52940:S.L.A.I. Phantom Crash Beta Trial Code
