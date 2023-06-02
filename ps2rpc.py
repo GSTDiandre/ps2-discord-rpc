@@ -153,4 +153,4 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         logger.exception(e)
-        time.sleep(4000)
+        input()
