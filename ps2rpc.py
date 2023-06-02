@@ -64,7 +64,7 @@ def ping_ps2(ip=PS2_IP):
 def main():
     logger.info(f"---------------------------------")
     logger.info(f"PS2 IP is set as {PS2_IP}")
-    logger.info(f"PS2 IP is set as {HOST_IP}")
+    logger.info(f"Host IP is set as {HOST_IP}")
     load_gamename_map(GAMEDB_PATH)
     logger.info(f"GameDB: loaded {len(GameDB)} game(s)")
     RPC = Presence(CLIENT_ID)  # Initialize the client class
