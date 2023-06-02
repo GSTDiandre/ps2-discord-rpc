@@ -41,7 +41,7 @@ def load_gamename_map(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         for line in file.readlines():
             code, name = line.split(":", 1)  # this splits the line into 2 parts on the first colon
-            GameDB[code] = name  # this adds a new key/value to the dictionary
+            GameDB[code] = name.rstrip()  # this adds a new key/value to the dictionary
 
 
 def get_fixed_gamename(filename, search_string):
