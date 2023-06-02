@@ -2,6 +2,7 @@ import socket
 import time
 import subprocess
 import logging
+import pathlib
 import os
 import sys
 from dotenv import load_dotenv 
@@ -10,28 +11,18 @@ from pypresence import Presence
 # TODO Kill RPC after disconnect in OPL
 
 load_dotenv()
+
 CLIENT_ID = os.getenv('CLIENT_ID')
 HOST_IP = os.getenv('HOST_IP')
 PS2_IP = os.getenv('PS2_IP')
-PATH = os.path.dirname(os.path.abspath(sys.argv[0]))
-DVD_FILTER = bytes([0x5C, 0x00, 0x44, 0x00, 0x56, 0x00, 0x44, 0x00, 0x5C])
-GAMES_BIN_FILTER = bytes(
-    [0x5C, 0x00, 0x44, 0x00, 0x56, 0x00, 0x44, 0x00, 0x5C, 0x00,
-     0x67, 0x00, 0x61, 0x00, 0x6D, 0x00, 0x65, 0x00, 0x73, 0x00,
-     0x2E, 0x00, 0x62, 0x00, 0x69, 0x00, 0x6E, ]
-)
-GAMEDB_PATH = PATH + '\\GameDB.txt'
+
+PATH = pathlib.Path.cwd()
+GAMEDB_PATH = PATH / 'GameDB.txt'
+
+DVD_FILTER = bytes.fromhex('5c004400560044005c')
+GAMES_BIN_FILTER = bytes.fromhex('5c004400560044005c00670061006d00650073002e00620069006e')
+
 PING_GRACE = 3
-
-LARGE_IMAGE_MAP = {  # unused maps
-    "SLUS_210.05": "https://i.imgur.com/GXSok6D.jpg",
-    "SLES_535.40": "https://i.imgur.com/jjRCj7e.jpg",
-}
-
-SMALL_IMAGE_MAP = {  # unused maps
-    "SLUS_210.05": "https://i.imgur.com/9eC9WOP.png",
-    "SLES_535.40": "https://i.imgur.com/z4iSnFj.png",
-}
 GameDB = {}
 
 
@@ -45,20 +36,8 @@ def remove_prefix(text, prefix):
 def load_gamename_map(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         for line in file.readlines():
-            code, name = line.split(":", 1)  # this splits the line into 2 parts on the first colon
+            code, name = line.rstrip().split(":", 1)  # this splits the line into 2 parts on the first colon
             GameDB[code] = name  # this adds a new key/value to the dictionary
-
-
-def get_fixed_gamename(filename, search_string):
-    found_line = "Unknown game"
-    with open(filename, 'r') as file:
-        lines = file.readlines()
-        for index, line in enumerate(lines):
-            if line.startswith(search_string):
-                if index + 1 < len(lines):
-                    found_line = lines[index + 1].strip()[1:-1]
-                break
-    return found_line
 
 
 def ping_ps2(ip=PS2_IP):
@@ -85,7 +64,7 @@ def ping_ps2(ip=PS2_IP):
 def main():
     logger.info(f"---------------------------------")
     logger.info(f"PS2 IP is set as {PS2_IP}")
-    logger.info(f"PS2 IP is set as {HOST_IP}")
+    logger.info(f"Host IP is set as {HOST_IP}")
     load_gamename_map(GAMEDB_PATH)
     logger.info(f"GameDB: loaded {len(GameDB)} game(s)")
     RPC = Presence(CLIENT_ID)  # Initialize the client class
@@ -105,7 +84,8 @@ def main():
             if not PS2Online:
                 RPC.update(state="Idle",
                            details="running OPL",
-                           large_image="https://i.imgur.com/MXzehWn.png",
+                           large_image="https://i.imgur.com/HjuVXhR.png", 
+                           #https://i.imgur.com/MXzehWn.png for OPL logo
                            large_text="Open PS2 Loader",
                            start=time.time())
                 logger.info("PS2 has come online")
@@ -120,14 +100,12 @@ def main():
                     ".", 2
                 )
                 fixed_gamecode = gamecode.replace('_', '-').replace('.', '')
-                fixed_gamename = GameDB[fixed_gamecode][:-1]
+                fixed_gamename = GameDB[fixed_gamecode]
                 RPC.update(
                     state=fixed_gamecode,  # middle text
                     details=fixed_gamename,  # top text
-                    # large_image=LARGE_IMAGE_MAP.get(gamecode, "https://i.imgur.com/HjuVXhR.png"), #default PS2 Logo
                     large_image=f"https://raw.githubusercontent.com/xlenore/ps2-covers/main/covers/{fixed_gamecode}.jpg",
                     large_text=fixed_gamename,  # large image hover text
-                    # small_image=SMALL_IMAGE_MAP.get(gamecode,"https://i.imgur.com/91Nj3w0.png"),
                     small_image="https://i.imgur.com/91Nj3w0.png",
                     small_text="PlayStation 2",  # small image hover text
                     start=time.time(),  # timer
@@ -152,6 +130,7 @@ def main():
                 RPC.clear()
                 logging.info("PS2 has gone offline, RPC terminated")
                 # we don't talk about bruno
+                time.sleep(3)
                 s.recvfrom(65565)
                 s.recvfrom(65565)
                 s.recvfrom(65565)
@@ -176,4 +155,4 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         logger.exception(e)
-        time.sleep(4000)
+        input()
