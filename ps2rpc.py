@@ -40,18 +40,6 @@ def load_gamename_map(filename):
             GameDB[code] = name  # this adds a new key/value to the dictionary
 
 
-def get_fixed_gamename(filename, search_string):
-    found_line = "Unknown game"
-    with open(filename, 'r') as file:
-        lines = file.readlines()
-        for index, line in enumerate(lines):
-            if line.startswith(search_string):
-                if index + 1 < len(lines):
-                    found_line = lines[index + 1].strip()[1:-1]
-                break
-    return found_line
-
-
 def ping_ps2(ip=PS2_IP):
     # Define the ping command based on the operating system
     # ping_cmd = ["ping", "-c", "1", ip]  # For Linux/macOS
