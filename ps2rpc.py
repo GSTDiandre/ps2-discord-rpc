@@ -16,7 +16,7 @@ CLIENT_ID = os.getenv('CLIENT_ID')
 HOST_IP = os.getenv('HOST_IP')
 PS2_IP = os.getenv('PS2_IP')
 
-PATH = pathlib.Path(sys.argv[0]).absolute()
+PATH = pathlib.Path.cwd()
 GAMEDB_PATH = PATH / 'GameDB.txt'
 
 DVD_FILTER = bytes.fromhex('5c004400560044005c')
