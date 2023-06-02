@@ -2,6 +2,7 @@ import socket
 import time
 import subprocess
 import logging
+import pathlib
 import os
 import sys
 from dotenv import load_dotenv 
@@ -10,17 +11,21 @@ from pypresence import Presence
 # TODO Kill RPC after disconnect in OPL
 
 load_dotenv()
+
 CLIENT_ID = os.getenv('CLIENT_ID')
 HOST_IP = os.getenv('HOST_IP')
 PS2_IP = os.getenv('PS2_IP')
-PATH = os.path.dirname(os.path.abspath(sys.argv[0]))
+
+PATH = pathlib.Path(sys.argv[0]).absolute()
+GAMEDB_PATH = PATH / 'GameDB.txt'
+
 DVD_FILTER = bytes([0x5C, 0x00, 0x44, 0x00, 0x56, 0x00, 0x44, 0x00, 0x5C])
 GAMES_BIN_FILTER = bytes(
     [0x5C, 0x00, 0x44, 0x00, 0x56, 0x00, 0x44, 0x00, 0x5C, 0x00,
      0x67, 0x00, 0x61, 0x00, 0x6D, 0x00, 0x65, 0x00, 0x73, 0x00,
      0x2E, 0x00, 0x62, 0x00, 0x69, 0x00, 0x6E, ]
 )
-GAMEDB_PATH = PATH + '\\GameDB.txt'
+
 PING_GRACE = 3
 GameDB = {}
 
