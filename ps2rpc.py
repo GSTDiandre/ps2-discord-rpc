@@ -5,7 +5,7 @@ import logging
 import pathlib
 import os
 import sys
-from dotenv import load_dotenv 
+from dotenv import load_dotenv
 from pypresence import Presence
 
 # TODO Kill RPC after disconnect in OPL
@@ -45,11 +45,9 @@ def ping_ps2(ip=PS2_IP):
     # ping_cmd = ["ping", "-c", "1", ip]  # For Linux/macOS
     ping_cmd = ["ping", "-n", "1", ip, "-w", "5000"]  # For Windows
     try:
-        # Execute the ping command and capture the output
         result = subprocess.run(ping_cmd, capture_output=True, text=True, timeout=5)
-        output = result.stdout.lower()
-        # Check the output for successful ping
-        if "ttl=" in output:
+        # Check the return code  for successful ping
+        if result.returncode == 0:
             logging.debug("PS2 is alive")
             return True
         else:
@@ -84,8 +82,8 @@ def main():
             if not PS2Online:
                 RPC.update(state="Idle",
                            details="running OPL",
-                           large_image="https://i.imgur.com/HjuVXhR.png", 
-                           #https://i.imgur.com/MXzehWn.png for OPL logo
+                           large_image="https://i.imgur.com/HjuVXhR.png",
+                           # https://i.imgur.com/MXzehWn.png for OPL logo
                            large_text="Open PS2 Loader",
                            start=time.time())
                 logger.info("PS2 has come online")
@@ -141,6 +139,7 @@ def main():
     # disabled promiscuous mode
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
 
+
 if __name__ == "__main__":
     stream_handler = logging.StreamHandler()
     file_handler = logging.FileHandler('logs.log')
@@ -148,9 +147,11 @@ if __name__ == "__main__":
         format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
         datefmt='%Y-%m-%d %H:%M:%S',
         level=logging.INFO,
-        handlers=[stream_handler,file_handler]
+        handlers=[stream_handler, file_handler]
     )
     logger = logging.getLogger()
+    while True:
+        ping_ps2("192.168.1.250")
     try:
         main()
     except Exception as e:
