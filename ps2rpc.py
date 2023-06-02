@@ -40,10 +40,14 @@ def load_gamename_map(filename):
             GameDB[code] = name  # this adds a new key/value to the dictionary
 
 
+# Ping once w/ a timeout of 1000ms
 def ping_ps2(ip=PS2_IP):
     # Define the ping command based on the operating system
-    # ping_cmd = ["ping", "-c", "1", ip]  # For Linux/macOS
-    ping_cmd = ["ping", "-n", "1", ip, "-w", "5000"]  # For Windows
+    if os.name == 'nt':
+        ping_cmd = ["ping", "-n", "1", ip, "-w", "1000"]  # For Windows
+    else:
+        ping_cmd = ["ping", "-c", "1", ip, "-w", "1000"]  # For Linux/macOS
+
     try:
         result = subprocess.run(ping_cmd, capture_output=True, text=True, timeout=5)
         # Check the return code  for successful ping
