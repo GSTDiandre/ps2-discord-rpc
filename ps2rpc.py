@@ -105,7 +105,8 @@ def main():
             if not PS2Online:
                 RPC.update(state="Idle",
                            details="running OPL",
-                           large_image="https://i.imgur.com/MXzehWn.png",
+                           large_image="https://i.imgur.com/HjuVXhR.png", 
+                           #https://i.imgur.com/MXzehWn.png for OPL logo
                            large_text="Open PS2 Loader",
                            start=time.time())
                 logger.info("PS2 has come online")
@@ -152,6 +153,7 @@ def main():
                 RPC.clear()
                 logging.info("PS2 has gone offline, RPC terminated")
                 # we don't talk about bruno
+                time.sleep(3)
                 s.recvfrom(65565)
                 s.recvfrom(65565)
                 s.recvfrom(65565)
