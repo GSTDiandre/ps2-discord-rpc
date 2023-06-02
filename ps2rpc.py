@@ -154,8 +154,6 @@ if __name__ == "__main__":
         handlers=[stream_handler, file_handler]
     )
     logger = logging.getLogger()
-    while True:
-        ping_ps2("192.168.1.250")
     try:
         main()
     except Exception as e:
