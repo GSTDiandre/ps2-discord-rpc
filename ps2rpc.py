@@ -99,7 +99,7 @@ def main():
                     ".", 2
                 )
                 fixed_gamecode = gamecode.replace('_', '-').replace('.', '')
-                fixed_gamename = GameDB[fixed_gamecode][:-1]
+                fixed_gamename = GameDB[fixed_gamecode]
                 RPC.update(
                     state=fixed_gamecode,  # middle text
                     details=fixed_gamename,  # top text
