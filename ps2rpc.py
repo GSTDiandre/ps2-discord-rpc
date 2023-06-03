@@ -7,6 +7,7 @@ import os
 import sys
 from dotenv import load_dotenv
 from pypresence import Presence
+from multiprocessing import Process, Value
 
 # TODO Kill RPC after disconnect in OPL
 
@@ -40,6 +41,12 @@ def load_gamename_map(filename):
             GameDB[code] = name  # this adds a new key/value to the dictionary
 
 
+def ping_func(n):
+    while True:
+        n.value = ping_ps2()
+        time.sleep(1)
+
+
 # Ping once w/ a timeout of 1000ms
 def ping_ps2(ip=PS2_IP):
     # Define the ping command based on the operating system
@@ -71,6 +78,10 @@ def main():
     logger.info(f"GameDB: loaded {len(GameDB)} game(s)")
     RPC = Presence(CLIENT_ID)  # Initialize the client class
     RPC.connect()  # Start the handshake loop
+    # Fork a child process to ping PS2 and report its status
+    last_ping = Value('i', 0)  # ping value will be stored here
+    p = Process(target=ping_func, args=(last_ping,))
+    p.start()
     # create a raw socket and bind it to the public interface
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
     s.bind((HOST_IP, 0))
@@ -82,6 +93,9 @@ def main():
     while True:
         message, address = s.recvfrom(65565)
         ip, port = address
+        # check if the last ping was successfull, Clear Rich Presence otherwise
+        if not last_ping.value:
+            RPC.clear()
         if ip == PS2_IP:
             if not PS2Online:
                 RPC.update(state="Idle",
