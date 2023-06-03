@@ -23,6 +23,7 @@ GAMES_BIN_FILTER = bytes.fromhex('5c004400560044005c00670061006d00650073002e0062
 
 PING_GRACE = 3
 GameDB = {}
+last_ping = Value('i', 0)  # ping value will be stored here
 
 
 # poor man's python
@@ -166,7 +167,6 @@ if __name__ == "__main__":
         handlers=[stream_handler, file_handler]
     )
     logger = logging.getLogger()
-    last_ping = Value('i', 0)  # ping value will be stored here
     p = Process(target=ping_func, args=(last_ping,))
     try:
         # Fork a child process to ping PS2 and report its status
