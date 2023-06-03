@@ -119,6 +119,7 @@ def main():
         # check if the last ping was successfull, Clear Rich Presence otherwise
         if not last_ping.value:
             RPC.clear()
+            p.kill()
         if ip == PS2_IP:
             if not p.is_alive():
                 p.start()
