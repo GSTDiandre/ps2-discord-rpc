@@ -24,20 +24,15 @@ GAMES_BIN_FILTER = bytes.fromhex('5c004400560044005c00670061006d00650073002e0062
 PING_GRACE = 3
 GameDB = {}
 last_ping = Value('i', 0)  # ping value will be stored here
-
-
-# poor man's python
-def remove_prefix(text, prefix):
-    if text.startswith(prefix):
-        return text[len(prefix):]
-    return text  # or whatever
-
-
-def load_gamename_map(filename):
-    with open(filename, 'r', encoding='utf-8') as file:
-        for line in file.readlines():
-            code, name = line.rstrip().split(":", 1)  # this splits the line into 2 parts on the first colon
-            GameDB[code] = name  # this adds a new key/value to the dictionary
+stream_handler = logging.StreamHandler()
+file_handler = logging.FileHandler('logs.log')
+logging.basicConfig(
+    format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
+    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO,
+    handlers=[stream_handler, file_handler]
+)
+logger = logging.getLogger()
 
 
 def ping_func(n):
@@ -60,6 +55,23 @@ def ping_func(n):
 
         # wait before pinging again
         time.sleep(1)
+
+
+p = Process(target=ping_func, args=(last_ping,))
+
+
+# poor man's python
+def remove_prefix(text, prefix):
+    if text.startswith(prefix):
+        return text[len(prefix):]
+    return text  # or whatever
+
+
+def load_gamename_map(filename):
+    with open(filename, 'r', encoding='utf-8') as file:
+        for line in file.readlines():
+            code, name = line.rstrip().split(":", 1)  # this splits the line into 2 parts on the first colon
+            GameDB[code] = name  # this adds a new key/value to the dictionary
 
 
 # Ping once w/ a timeout of 1000ms
@@ -160,16 +172,6 @@ def main():
 
 
 if __name__ == "__main__":
-    stream_handler = logging.StreamHandler()
-    file_handler = logging.FileHandler('logs.log')
-    logging.basicConfig(
-        format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
-        datefmt='%Y-%m-%d %H:%M:%S',
-        level=logging.INFO,
-        handlers=[stream_handler, file_handler]
-    )
-    logger = logging.getLogger()
-    p = Process(target=ping_func, args=(last_ping,))
     try:
         main()
     except Exception as e:
