@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 from pypresence import Presence
 from multiprocessing import Process, Value
 
-# TODO Kill RPC after disconnect in OPL
 
 load_dotenv()
 
