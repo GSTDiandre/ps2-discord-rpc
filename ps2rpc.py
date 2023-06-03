@@ -93,10 +93,6 @@ def main():
     logger.info(f"GameDB: loaded {len(GameDB)} game(s)")
     RPC = Presence(CLIENT_ID)  # Initialize the client class
     RPC.connect()  # Start the handshake loop
-    # Fork a child process to ping PS2 and report its status
-    last_ping = Value('i', 0)  # ping value will be stored here
-    p = Process(target=ping_func, args=(last_ping,))
-    p.start()
     # create a raw socket and bind it to the public interface
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
     s.bind((HOST_IP, 0))
@@ -171,8 +167,13 @@ if __name__ == "__main__":
         handlers=[stream_handler, file_handler]
     )
     logger = logging.getLogger()
+    last_ping = Value('i', 0)  # ping value will be stored here
+    p = Process(target=ping_func, args=(last_ping,))
     try:
+        # Fork a child process to ping PS2 and report its status
+        p.start()
         main()
     except Exception as e:
         logger.exception(e)
+        p.kill()
         input()
