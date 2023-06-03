@@ -52,7 +52,7 @@ def ping_func(n):
                 logging.info("PS2 has resumed pings")
                 ping_lost = False
         else:  # dropped ping
-            logging.warning(f"No response from PS2,. ({ping_count}/{PING_GRACE} attempts)")
+            logging.warning(f"No response from PS2,. ({ping_count} attempts)")
             ping_lost = True
             ping_count += 1
         if ping_count > PING_GRACE:
@@ -108,6 +108,8 @@ def main():
         if not last_ping.value:
             RPC.clear()
         if ip == PS2_IP:
+            if not p.is_alive():
+                p.start()
             if not PS2Online:
                 RPC.update(state="Idle",
                            details="running OPL",
@@ -169,8 +171,6 @@ if __name__ == "__main__":
     logger = logging.getLogger()
     p = Process(target=ping_func, args=(last_ping,))
     try:
-        # Fork a child process to ping PS2 and report its status
-        p.start()
         main()
     except Exception as e:
         logger.exception(e)
