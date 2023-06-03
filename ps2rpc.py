@@ -57,9 +57,6 @@ def ping_func(n):
         time.sleep(1)
 
 
-p = Process(target=ping_func, args=(last_ping,))
-
-
 # poor man's python
 def remove_prefix(text, prefix):
     if text.startswith(prefix):
@@ -105,6 +102,8 @@ def main():
     logger.info(f"GameDB: loaded {len(GameDB)} game(s)")
     RPC = Presence(CLIENT_ID)  # Initialize the client class
     RPC.connect()  # Start the handshake loop
+    # init process
+    p = Process(target=ping_func, args=(last_ping,))
     # create a raw socket and bind it to the public interface
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
     s.bind((HOST_IP, 0))
@@ -118,11 +117,13 @@ def main():
         ip, port = address
         # check if the last ping was successfull, Clear Rich Presence otherwise
         if not last_ping.value:
+            PS2Online = False
             RPC.clear()
             if p.is_alive():
                 p.kill()
         if ip == PS2_IP:
             if not p.is_alive():
+                p = Process(target=ping_func, args=(last_ping,))
                 p.start()
             if not PS2Online:
                 RPC.update(state="Idle",
