@@ -130,7 +130,7 @@ def main():
                 ping_count = 1
                 ping_lost = False
                 while ping_count <= PING_GRACE:
-                    if ping_ps2(PS2_IP):
+                    if last_ping.value:
                         ping_count = 1
                         if ping_lost:
                             logging.info("PS2 has resumed pings")
