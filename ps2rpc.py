@@ -41,8 +41,24 @@ def load_gamename_map(filename):
 
 
 def ping_func(n):
+    ping_count = 1
+    ping_lost = False
+    n.value = True
     while True:
-        n.value = ping_ps2()
+        ping_response = ping_ps2()
+        if ping_response:  # successful ping
+            ping_count = 1
+            if ping_lost:
+                logging.info("PS2 has resumed pings")
+                ping_lost = False
+        else:  # dropped ping
+            logging.warning(f"No response from PS2,. ({ping_count}/{PING_GRACE} attempts)")
+            ping_lost = True
+            ping_count += 1
+        if ping_count > PING_GRACE:
+            n.value = False
+
+        # wait before pinging again
         time.sleep(1)
 
 
@@ -127,20 +143,8 @@ def main():
                 )
                 logger.info("RPC started: " + gamecode + " - " + fixed_gamename)
                 time.sleep(10)  # necessary wait to avoid dropped pings on game startup
-                ping_count = 1
-                ping_lost = False
-                while ping_count <= PING_GRACE:
-                    if last_ping.value:
-                        ping_count = 1
-                        if ping_lost:
-                            logging.info("PS2 has resumed pings")
-                            ping_lost = False
-                            # wait before pinging again
-                        time.sleep(3)
-                    else:
-                        logging.warning(f"No response from PS2,. ({ping_count}/{PING_GRACE} attempts)")
-                        ping_lost = True
-                        ping_count += 1
+                while last_ping.value:
+                    time.sleep(3)
                 PS2Online = False
                 RPC.clear()
                 logging.info("PS2 has gone offline, RPC terminated")
