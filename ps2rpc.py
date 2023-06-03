@@ -4,7 +4,6 @@ import subprocess
 import logging
 import pathlib
 import os
-import sys
 from dotenv import load_dotenv
 from pypresence import Presence
 from multiprocessing import Process, Value
