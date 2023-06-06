@@ -3,6 +3,7 @@ import time
 import logging
 import pathlib
 import os
+import ping3
 from dotenv import load_dotenv
 from pypresence import Presence
 from multiprocessing import Process, Value
@@ -71,34 +72,20 @@ def load_gamename_map(filename):
 
 # Ping once w/ a timeout of 1000ms
 def ping_ps2(ip=PS2_IP):
-    # Socket method:
-    a_socket = socket.socket()
-    try:
-        a_socket.connect((ip, 445))
-    except Exception as exception:
-        logging.exception(f"An error occurred: {exception}")
-        return False
-    logging.debug("PS2 is alive")
-    return True
     # Define the ping command based on the operating system
-    # if os.name == 'nt':
-    #     ping_cmd = ["ping", "-n", "1", ip, "-w", "1000"]  # For Windows
-    # else:
-    #     ping_cmd = ["ping", "-c", "1", ip, "-w", "1000"]  # For Linux/macOS
-    #
-    # try:
-    #     result = subprocess.run(ping_cmd, capture_output=True, text=True, timeout=5)
-    #     # Check the return code  for successful ping
-    #     if result.returncode == 0:
-    #         logging.debug("PS2 is alive")
-    #         return True
-    #     else:
-    #         return False
-    # except subprocess.TimeoutExpired:
-    #     return False
-    # except Exception as e:
-    #     logging.exception(f"An error occurred: {e}")
-    #     return False
+    try:
+        result = ping3.ping(ip, timeout=1)
+        # Check the return code  for successful ping
+        if result >= 0:
+            logging.debug(f"PS2 is alive, responded in {result}s")
+            return True
+        else:
+            return False
+    except TypeError:
+        return False
+    except Exception as e:
+        logging.exception(f"An error occurred: {e}")
+        return False
 
 
 def main():
