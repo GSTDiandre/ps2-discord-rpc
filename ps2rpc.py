@@ -23,7 +23,7 @@ GAMES_BIN_FILTER = bytes.fromhex('5c004400560044005c00670061006d00650073002e0062
 
 PING_GRACE = 3
 GameDB = {}
-last_ping = Value('i', 0)  # ping value will be stored here
+last_ping = Value('i', 1)  # ping value will be stored here
 stream_handler = logging.StreamHandler()
 file_handler = logging.FileHandler('logs.log')
 logging.basicConfig(
@@ -73,25 +73,34 @@ def load_gamename_map(filename):
 
 # Ping once w/ a timeout of 1000ms
 def ping_ps2(ip=PS2_IP):
-    # Define the ping command based on the operating system
-    if os.name == 'nt':
-        ping_cmd = ["ping", "-n", "1", ip, "-w", "1000"]  # For Windows
-    else:
-        ping_cmd = ["ping", "-c", "1", ip, "-w", "1000"]  # For Linux/macOS
-
+    # Socket method:
+    a_socket = socket.socket()
     try:
-        result = subprocess.run(ping_cmd, capture_output=True, text=True, timeout=5)
-        # Check the return code  for successful ping
-        if result.returncode == 0:
-            logging.debug("PS2 is alive")
-            return True
-        else:
-            return False
-    except subprocess.TimeoutExpired:
+        a_socket.connect((ip, 445))
+    except Exception as exception:
+        logging.exception(f"An error occurred: {exception}")
         return False
-    except Exception as e:
-        logging.exception(f"An error occurred: {e}")
-        return False
+    logging.debug("PS2 is alive")
+    return True
+    # Define the ping command based on the operating system
+    # if os.name == 'nt':
+    #     ping_cmd = ["ping", "-n", "1", ip, "-w", "1000"]  # For Windows
+    # else:
+    #     ping_cmd = ["ping", "-c", "1", ip, "-w", "1000"]  # For Linux/macOS
+    #
+    # try:
+    #     result = subprocess.run(ping_cmd, capture_output=True, text=True, timeout=5)
+    #     # Check the return code  for successful ping
+    #     if result.returncode == 0:
+    #         logging.debug("PS2 is alive")
+    #         return True
+    #     else:
+    #         return False
+    # except subprocess.TimeoutExpired:
+    #     return False
+    # except Exception as e:
+    #     logging.exception(f"An error occurred: {e}")
+    #     return False
 
 
 def main():
@@ -169,6 +178,7 @@ def main():
                 s.recvfrom(65565)
                 s.recvfrom(65565)
                 time.sleep(3)
+        time.sleep(1)
     # receive a packet
     # disabled promiscuous mode
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
@@ -179,5 +189,4 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         logger.exception(e)
-        p.kill()
         input()
