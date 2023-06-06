@@ -1,13 +1,11 @@
 import socket
 import time
-import subprocess
 import logging
 import pathlib
 import os
 from dotenv import load_dotenv
 from pypresence import Presence
 from multiprocessing import Process, Value
-
 
 load_dotenv()
 
@@ -129,9 +127,12 @@ def main():
             PS2Online = False
             RPC.clear()
             if p.is_alive():
+                last_ping.value = 1
+                logger.warning("RIP PS2, killing ping process")
                 p.kill()
         if ip == PS2_IP:
             if not p.is_alive():
+                last_ping.value = 1
                 p = Process(target=ping_func, args=(last_ping,))
                 p.start()
             if not PS2Online:
