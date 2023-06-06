@@ -1,2 +1,3 @@
 pypresence
 python-dotenv
+ping3
