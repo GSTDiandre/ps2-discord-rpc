@@ -109,13 +109,13 @@ def main():
     while True:
         message, address = s.recvfrom(65565)
         ip, port = address
-        # check if the last ping was successfull, Clear Rich Presence otherwise
+        # check if the last ping was successful, Clear Rich Presence otherwise
         if not last_ping.value:
             PS2Online = False
             RPC.clear()
             if p.is_alive():
                 last_ping.value = 1
-                logger.warning("RIP PS2, killing ping process")
+                logger.debug("RIP PS2, killing ping process")
                 p.kill()
         if ip == PS2_IP:
             if not p.is_alive():
@@ -158,6 +158,10 @@ def main():
                 PS2Online = False
                 RPC.clear()
                 logging.info("PS2 has gone offline, RPC terminated")
+                if p.is_alive():
+                    last_ping.value = 1
+                    logger.debug("RIP PS2, killing ping process")
+                    p.kill()
                 # we don't talk about bruno
                 time.sleep(3)
                 s.recvfrom(65565)
@@ -166,7 +170,6 @@ def main():
                 s.recvfrom(65565)
                 s.recvfrom(65565)
                 time.sleep(3)
-        time.sleep(1)
     # receive a packet
     # disabled promiscuous mode
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
