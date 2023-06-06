@@ -1,14 +1,12 @@
 import socket
 import time
-import subprocess
 import logging
 import pathlib
 import os
-import sys
-from dotenv import load_dotenv 
+import ping3
+from dotenv import load_dotenv
 from pypresence import Presence
-
-# TODO Kill RPC after disconnect in OPL
+from multiprocessing import Process, Value
 
 load_dotenv()
 
@@ -24,6 +22,38 @@ GAMES_BIN_FILTER = bytes.fromhex('5c004400560044005c00670061006d00650073002e0062
 
 PING_GRACE = 3
 GameDB = {}
+last_ping = Value('i', 1)  # ping value will be stored here
+stream_handler = logging.StreamHandler()
+file_handler = logging.FileHandler('logs.log')
+logging.basicConfig(
+    format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
+    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO,
+    handlers=[stream_handler, file_handler]
+)
+logger = logging.getLogger()
+
+
+def ping_func(n):
+    ping_count = 1
+    ping_lost = False
+    n.value = True
+    while True:
+        ping_response = ping_ps2()
+        if ping_response:  # successful ping
+            ping_count = 1
+            if ping_lost:
+                logging.info("PS2 has resumed pings")
+                ping_lost = False
+        else:  # dropped ping
+            logging.warning(f"No response from PS2,. ({ping_count} attempts)")
+            ping_lost = True
+            ping_count += 1
+        if ping_count > PING_GRACE:
+            n.value = False
+
+        # wait before pinging again
+        time.sleep(1)
 
 
 # poor man's python
@@ -40,21 +70,18 @@ def load_gamename_map(filename):
             GameDB[code] = name  # this adds a new key/value to the dictionary
 
 
+# Ping once w/ a timeout of 1000ms
 def ping_ps2(ip=PS2_IP):
     # Define the ping command based on the operating system
-    # ping_cmd = ["ping", "-c", "1", ip]  # For Linux/macOS
-    ping_cmd = ["ping", "-n", "1", ip, "-w", "5000"]  # For Windows
     try:
-        # Execute the ping command and capture the output
-        result = subprocess.run(ping_cmd, capture_output=True, text=True, timeout=5)
-        output = result.stdout.lower()
-        # Check the output for successful ping
-        if "ttl=" in output:
-            logging.debug("PS2 is alive")
+        result = ping3.ping(ip, timeout=1)
+        # Check the return code  for successful ping
+        if result >= 0:
+            logging.debug(f"PS2 is alive, responded in {result}s")
             return True
         else:
             return False
-    except subprocess.TimeoutExpired:
+    except TypeError:
         return False
     except Exception as e:
         logging.exception(f"An error occurred: {e}")
@@ -69,6 +96,8 @@ def main():
     logger.info(f"GameDB: loaded {len(GameDB)} game(s)")
     RPC = Presence(CLIENT_ID)  # Initialize the client class
     RPC.connect()  # Start the handshake loop
+    # init process
+    p = Process(target=ping_func, args=(last_ping,))
     # create a raw socket and bind it to the public interface
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
     s.bind((HOST_IP, 0))
@@ -80,12 +109,24 @@ def main():
     while True:
         message, address = s.recvfrom(65565)
         ip, port = address
+        # check if the last ping was successful, Clear Rich Presence otherwise
+        if not last_ping.value:
+            PS2Online = False
+            RPC.clear()
+            if p.is_alive():
+                last_ping.value = 1
+                logger.debug("RIP PS2, killing ping process")
+                p.kill()
         if ip == PS2_IP:
+            if not p.is_alive():
+                last_ping.value = 1
+                p = Process(target=ping_func, args=(last_ping,))
+                p.start()
             if not PS2Online:
                 RPC.update(state="Idle",
                            details="running OPL",
-                           large_image="https://i.imgur.com/HjuVXhR.png", 
-                           #https://i.imgur.com/MXzehWn.png for OPL logo
+                           large_image="https://i.imgur.com/HjuVXhR.png",
+                           # https://i.imgur.com/MXzehWn.png for OPL logo
                            large_text="Open PS2 Loader",
                            start=time.time())
                 logger.info("PS2 has come online")
@@ -112,23 +153,15 @@ def main():
                 )
                 logger.info("RPC started: " + gamecode + " - " + fixed_gamename)
                 time.sleep(10)  # necessary wait to avoid dropped pings on game startup
-                ping_count = 1
-                ping_lost = False
-                while ping_count <= PING_GRACE:
-                    if ping_ps2(PS2_IP):
-                        ping_count = 1
-                        if ping_lost:
-                            logging.info("PS2 has resumed pings")
-                            ping_lost = False
-                            # wait before pinging again
-                        time.sleep(3)
-                    else:
-                        logging.warning(f"No response from PS2,. ({ping_count}/{PING_GRACE} attempts)")
-                        ping_lost = True
-                        ping_count += 1
+                while last_ping.value:
+                    time.sleep(3)
                 PS2Online = False
                 RPC.clear()
                 logging.info("PS2 has gone offline, RPC terminated")
+                if p.is_alive():
+                    last_ping.value = 1
+                    logger.debug("RIP PS2, killing ping process")
+                    p.kill()
                 # we don't talk about bruno
                 time.sleep(3)
                 s.recvfrom(65565)
@@ -141,16 +174,8 @@ def main():
     # disabled promiscuous mode
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
 
+
 if __name__ == "__main__":
-    stream_handler = logging.StreamHandler()
-    file_handler = logging.FileHandler('logs.log')
-    logging.basicConfig(
-        format="%(asctime)s.%(msecs)03d %(levelname)s: %(message)s",
-        datefmt='%Y-%m-%d %H:%M:%S',
-        level=logging.INFO,
-        handlers=[stream_handler,file_handler]
-    )
-    logger = logging.getLogger()
     try:
         main()
     except Exception as e:
