@@ -115,6 +115,7 @@ def main():
             RPC.clear()
             if p.is_alive():
                 last_ping.value = 1
+                logging.info("PS2 has gone offline, RPC terminated")
                 logger.debug("RIP PS2, killing ping process")
                 p.kill()
         if ip == PS2_IP:
@@ -154,7 +155,7 @@ def main():
                 logger.info("RPC started: " + gamecode + " - " + fixed_gamename)
                 time.sleep(10)  # necessary wait to avoid dropped pings on game startup
                 while last_ping.value:
-                    time.sleep(3)
+                    time.sleep(2.8)
                 PS2Online = False
                 RPC.clear()
                 logging.info("PS2 has gone offline, RPC terminated")
