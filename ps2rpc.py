@@ -48,7 +48,7 @@ def ping_func(n):
                 logging.info("PS2 has resumed pings")
                 ping_lost = False
         else:  # dropped ping
-            logging.warning(f"No response from PS2, retrying.. ({ping_count}/{PING_GRACE} attempts)")
+            logging.warning(f"No response from PS2, retrying.. ({ping_count}/{PING_GRACE})")
             ping_lost = True
             ping_count += 1
         if ping_count > PING_GRACE:
