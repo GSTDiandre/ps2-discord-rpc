@@ -8,14 +8,17 @@ from dotenv import load_dotenv
 from pypresence import Presence
 from multiprocessing import Process, Value
 
+#TODO prevent counter from overflowing grace
+#TODO proper buffer flush aka bruno
+#TODO set global variables for ping options
+
 load_dotenv()
 
 CLIENT_ID = os.getenv('CLIENT_ID')
 HOST_IP = os.getenv('HOST_IP')
 PS2_IP = os.getenv('PS2_IP')
 
-PATH = pathlib.Path.cwd()
-GAMEDB_PATH = PATH / 'GameDB.txt'
+GAMEDB_FILE = 'GameDB.txt'
 
 DVD_FILTER = bytes.fromhex('5c004400560044005c')
 GAMES_BIN_FILTER = bytes.fromhex('5c004400560044005c00670061006d00650073002e00620069006e')
@@ -33,7 +36,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger()
 
-
 def ping_func(n):
     ping_count = 1
     ping_lost = False
@@ -46,15 +48,13 @@ def ping_func(n):
                 logging.info("PS2 has resumed pings")
                 ping_lost = False
         else:  # dropped ping
-            logging.warning(f"No response from PS2,. ({ping_count} attempts)")
+            logging.warning(f"No response from PS2, retrying.. ({ping_count}/{PING_GRACE} attempts)")
             ping_lost = True
             ping_count += 1
         if ping_count > PING_GRACE:
             n.value = False
-
         # wait before pinging again
         time.sleep(1)
-
 
 # poor man's python
 def remove_prefix(text, prefix):
@@ -62,13 +62,11 @@ def remove_prefix(text, prefix):
         return text[len(prefix):]
     return text  # or whatever
 
-
 def load_gamename_map(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         for line in file.readlines():
             code, name = line.rstrip().split(":", 1)  # this splits the line into 2 parts on the first colon
             GameDB[code] = name  # this adds a new key/value to the dictionary
-
 
 # Ping once w/ a timeout of 1000ms
 def ping_ps2(ip=PS2_IP):
@@ -77,7 +75,7 @@ def ping_ps2(ip=PS2_IP):
         result = ping3.ping(ip, timeout=1)
         # Check the return code  for successful ping
         if result >= 0:
-            logging.debug(f"PS2 is alive, responded in {result}s")
+            logging.debug(f"PS2 is alive, responded in {result[5:]}s")
             return True
         else:
             return False
@@ -87,21 +85,19 @@ def ping_ps2(ip=PS2_IP):
         logging.exception(f"An error occurred: {e}")
         return False
 
-
 def main():
     logger.info(f"---------------------------------")
     logger.info(f"PS2 IP is set as {PS2_IP}")
     logger.info(f"Host IP is set as {HOST_IP}")
-    load_gamename_map(GAMEDB_PATH)
+    load_gamename_map(GAMEDB_FILE)
     logger.info(f"GameDB: loaded {len(GameDB)} game(s)")
-    RPC = Presence(CLIENT_ID)  # Initialize the client class
-    RPC.connect()  # Start the handshake loop
-    # init process
-    p = Process(target=ping_func, args=(last_ping,))
+    RPC = Presence(CLIENT_ID)  # initialize the client class
+    RPC.connect()  # start the handshake loop
+    p = Process(target=ping_func, args=(last_ping,)) # Initialize subprocess
     # create a raw socket and bind it to the public interface
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
     s.bind((HOST_IP, 0))
-    # Include IP headers
+    # include IP headers
     s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
     # receive all packets
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
@@ -109,14 +105,14 @@ def main():
     while True:
         message, address = s.recvfrom(65565)
         ip, port = address
-        # check if the last ping was successful, Clear Rich Presence otherwise
+        # check if the last ping was successful, clear rich presence otherwise
         if not last_ping.value:
             PS2Online = False
             RPC.clear()
             if p.is_alive():
                 last_ping.value = 1
                 logging.info("PS2 has gone offline, RPC terminated")
-                logger.debug("RIP PS2, killing ping process")
+                logger.debug("Killing ping subprocess")
                 p.kill()
         if ip == PS2_IP:
             if not p.is_alive():
@@ -161,7 +157,7 @@ def main():
                 logging.info("PS2 has gone offline, RPC terminated")
                 if p.is_alive():
                     last_ping.value = 1
-                    logger.debug("RIP PS2, killing ping process")
+                    logger.debug("Killing ping subprocess")
                     p.kill()
                 # we don't talk about bruno
                 time.sleep(3)
@@ -174,7 +170,6 @@ def main():
     # receive a packet
     # disabled promiscuous mode
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
-
 
 if __name__ == "__main__":
     try:
