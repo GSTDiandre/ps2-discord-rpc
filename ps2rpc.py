@@ -70,12 +70,11 @@ def load_gamename_map(filename):
 
 # Ping once w/ a timeout of 1000ms
 def ping_ps2(ip=PS2_IP):
-    # Define the ping command based on the operating system
     try:
         result = ping3.ping(ip, timeout=1)
-        # Check the return code  for successful ping
+        # Check the return code for successful ping
         if result >= 0:
-            logging.debug(f"PS2 is alive, responded in {result[5:]}s")
+            logging.debug(f"PS2 is alive, responded in {result:.3f}s")
             return True
         else:
             return False
