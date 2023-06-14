@@ -21,6 +21,7 @@ PS2_IP = os.getenv('PS2_IP')
 GAMEDB_FILE = 'GameDB.txt'
 
 DVD_FILTER = bytes.fromhex('5c004400560044005c')
+STAR_FILTER = bytes.fromhex('5c004400560044005c002a')
 GAMES_BIN_FILTER = bytes.fromhex('5c004400560044005c00670061006d00650073002e00620069006e')
 
 PING_GRACE = 3
@@ -114,6 +115,7 @@ def main():
                 logger.debug("Killing ping subprocess")
                 p.kill()
         if ip == PS2_IP:
+            #logger.debug(f"PACKET from {ip} at {port}, : {message}") 
             if not p.is_alive():
                 last_ping.value = 1
                 p = Process(target=ping_func, args=(last_ping,))
@@ -128,10 +130,19 @@ def main():
                 logger.info("PS2 has come online")
                 PS2Online = True
             # drop last byte
-            msg_slice = message[128:-1]
-            if msg_slice.startswith(GAMES_BIN_FILTER):
+            #msg_slice = message[128:-1] #never using this again
+            testposition1 = message.find(GAMES_BIN_FILTER)
+            testposition2 = message.find(STAR_FILTER)
+            testposition3 = message.find(DVD_FILTER)
+            if testposition1!=-1:
+                logger.debug(f"gamebinfilter found at {testposition1}, message is {message}")
                 continue
-            elif msg_slice.startswith(DVD_FILTER):
+            elif testposition2!=-1:
+                logger.debug(f"starfilter found at {testposition2}, message is {message}")
+                continue
+            elif testposition3!=-1:
+                logger.debug(f"dvdfilter found at {testposition3}, message is {message}")
+                msg_slice = message[testposition3:-1]
                 gamepath = bytes([c for c in msg_slice if c != 0x00]).decode()
                 gamecode, gamename, _ = remove_prefix(gamepath, "\\DVD\\").rsplit(
                     ".", 2
