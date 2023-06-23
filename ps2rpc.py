@@ -10,7 +10,7 @@ from multiprocessing import Process, Value
 
 #TODO prevent counter from overflowing grace
 #TODO proper buffer flush aka bruno
-#TODO set global variables for ping options
+#TODO use pyinstaller for setup
 
 load_dotenv()
 
@@ -24,7 +24,10 @@ DVD_FILTER = bytes.fromhex('5c004400560044005c')
 STAR_FILTER = bytes.fromhex('5c004400560044005c002a')
 GAMES_BIN_FILTER = bytes.fromhex('5c004400560044005c00670061006d00650073002e00620069006e')
 
-PING_GRACE = 3
+PING_GRACE = 3 # number of dropped pings before terminating RPC
+PING_WAIT = 3 # time to wait before next ping
+PING_TIMEOUT = 1 # timeout in ms
+
 GameDB = {}
 last_ping = Value('i', 1)  # ping value will be stored here
 stream_handler = logging.StreamHandler()
@@ -55,7 +58,7 @@ def ping_func(n):
         if ping_count > PING_GRACE:
             n.value = False
         # wait before pinging again
-        time.sleep(1)
+        time.sleep(PING_WAIT)
 
 # poor man's python
 def remove_prefix(text, prefix):
@@ -72,7 +75,7 @@ def load_gamename_map(filename):
 # Ping once w/ a timeout of 1000ms
 def ping_ps2(ip=PS2_IP):
     try:
-        result = ping3.ping(ip, timeout=1)
+        result = ping3.ping(ip, timeout=PING_TIMEOUT)
         # Check the return code for successful ping
         if result >= 0:
             logging.debug(f"PS2 is alive, responded in {result:.3f}s")
