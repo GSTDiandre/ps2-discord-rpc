@@ -11,6 +11,7 @@ from multiprocessing import Process, Value
 #TODO prevent counter from overflowing grace
 #TODO proper buffer flush aka bruno
 #TODO use pyinstaller for setup
+#TODO run in headless mode/on PC startup
 
 load_dotenv()
 
@@ -155,7 +156,7 @@ def main():
                 RPC.update(
                     state=fixed_gamecode,  # middle text
                     details=fixed_gamename,  # top text
-                    large_image=f"https://raw.githubusercontent.com/xlenore/ps2-covers/main/covers/{fixed_gamecode}.jpg",
+                    large_image=f"https://raw.githubusercontent.com/xlenore/ps2-covers/main/covers/default/{fixed_gamecode}.jpg",
                     large_text=fixed_gamename,  # large image hover text
                     small_image="https://i.imgur.com/91Nj3w0.png",
                     small_text="PlayStation 2",  # small image hover text
