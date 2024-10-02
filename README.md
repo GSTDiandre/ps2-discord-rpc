@@ -33,3 +33,7 @@ Usage:
 - Run the script using ``python ps2rpc.py``.
 - Boot the console into OPL, then launch a PS2 game.
 - (Optional) Set up a batch file to execute the script in one click, or schedule an event to run it on startup.
+
+Troubleshooting:
+
+If the script is not functional, make sure to grant elevated access and/or set up firewall/AV/UAC exceptions.
