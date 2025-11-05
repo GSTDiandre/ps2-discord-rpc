@@ -4,3 +4,4 @@
 convert_gameIndex.py
 *.bat
 *.exe
+.venv
